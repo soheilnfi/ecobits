@@ -1362,6 +1362,65 @@
   /* on the blue menu the whole logo is white, mark included */
   .side-brand .lg path { fill: #fff; }
 
+  /* ============ COIN PAGE: the asset inside a portfolio, with a link out to EcoTrust ============ */
+  .etx { padding-block: 64px; }
+  .etx-grid { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr); gap: 56px; align-items: center; }
+  .etx-copy h2 { margin: 0; }
+  .etx-copy p { margin-top: 16px; font-size: 0.98rem; color: var(--ink-700); line-height: 2.05; max-width: 54ch; }
+  .etx-list { margin: 20px 0 26px; display: flex; flex-direction: column; gap: 11px; }
+  .etx-list li { display: flex; align-items: flex-start; gap: 11px; font-size: 0.92rem; color: var(--ink-800); line-height: 1.9; }
+  .etx-list i { width: 22px; height: 22px; flex: none; margin-top: 3px; border-radius: 50%; display: grid; place-items: center; border: 1.5px solid var(--blue); color: var(--blue-700); }
+  .etx-list i svg { width: 11px; height: 11px; }
+  .etx-list b { --fw: 660; font-weight: var(--fw); color: var(--ink-900); }
+  .etx-cta { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+  .etx-by { display: inline-flex; align-items: center; gap: 9px; font-size: 0.78rem; color: var(--ink-500); }
+  .etx-by .et-logo { height: 17px; width: auto; color: var(--ink-900); }
+  .etx-art {
+    position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 1.25; border-radius: var(--r-xl); display: grid; place-items: center;
+    background: linear-gradient(150deg, #eaf6ff 0%, #d8ecff 55%, #d6f3ea 100%); border: 1px solid var(--line-soft); box-shadow: var(--sh-2);
+  }
+  .etx-art::before { content: ""; position: absolute; inset: -20%; z-index: -1; background: repeating-radial-gradient(circle, transparent 0 46px, rgba(15, 157, 245, 0.16) 46px 47px); -webkit-mask-image: radial-gradient(circle, #000 20%, transparent 62%); mask-image: radial-gradient(circle, #000 20%, transparent 62%); }
+  .etx-ring { width: 62%; aspect-ratio: 1; border-radius: 50%; position: relative; display: grid; place-items: center; background: conic-gradient(var(--blue) 0 34%, #ffffff 34% 35%, var(--teal) 35% 58%, #ffffff 58% 59%, var(--mark-green) 59% 80%, #ffffff 80% 81%, #f2b84b 81% 99%, #ffffff 99% 100%); animation: etxspin 40s linear infinite; }
+  .etx-ring::after { content: ""; position: absolute; inset: 15%; border-radius: 50%; background: #ffffff; box-shadow: 0 10px 30px -14px rgba(7, 42, 74, 0.45); }
+  .etx-coin { position: absolute; z-index: 2; width: 26%; aspect-ratio: 1; left: 50%; top: 50%; transform: translate(-50%, -50%); animation: etxfloat 5s ease-in-out infinite; }
+  .etx-coin > * { display: block; width: 100%; height: 100%; }
+  .etx-coin img { object-fit: contain; transform: scale(1.25); }
+  .etx-tag { position: absolute; z-index: 3; padding: 6px 12px; border-radius: 999px; background: #ffffff; border: 1px solid #d8e6f3; color: #0d2440; font-size: 0.74rem; --fw: 620; font-weight: var(--fw); box-shadow: 0 10px 22px -14px rgba(7, 42, 74, 0.5); white-space: nowrap; }
+  .etx-tag.t1 { top: 12%; inset-inline-start: 8%; } .etx-tag.t2 { bottom: 14%; inset-inline-end: 7%; } .etx-tag.t3 { bottom: 10%; inset-inline-start: 12%; }
+  @keyframes etxspin { to { transform: rotate(360deg); } }
+  @keyframes etxfloat { 0%, 100% { transform: translate(-50%, -54%); } 50% { transform: translate(-50%, -46%); } }
+  @media (max-width: 1000px) { .etx-grid { grid-template-columns: 1fr; gap: 28px; } .etx-art { order: -1; aspect-ratio: 1.5; } .etx-ring { width: 48%; } .etx-coin { width: 20%; } }
+  @media (max-width: 760px) { .etx { padding-block: 40px; } }
+  @media (prefers-reduced-motion: reduce) { .etx-ring, .etx-coin { animation: none; } }
+
+  /* coin page / EcoTrust: the picture is an analysis card in the site's own card style (theme-aware) */
+  .etx-art { aspect-ratio: auto; min-height: 380px; overflow: visible; background: none; border: 0; box-shadow: none; border-radius: 0; }
+  .etx-art::before {
+    inset: 0; background: repeating-radial-gradient(circle, transparent 0 62.5px, color-mix(in srgb, var(--blue) 18%, var(--line)) 62.5px 64px);
+    -webkit-mask-image: radial-gradient(circle, #000 12%, transparent 66%); mask-image: radial-gradient(circle, #000 12%, transparent 66%);
+  }
+  .etx-art::after { content: ""; position: absolute; inset: 12% 10%; z-index: -1; border-radius: 50%; background: radial-gradient(closest-side, color-mix(in srgb, var(--blue) 24%, transparent), transparent); filter: blur(34px); }
+  .an-card { position: relative; width: min(100%, 380px); padding: 20px; border-radius: var(--r-lg); background: linear-gradient(180deg, var(--surface), var(--surface-2)); border: 1px solid var(--line); box-shadow: var(--sh-3); animation: anfloat 6s ease-in-out infinite; }
+  .an-head { display: flex; align-items: center; gap: 11px; }
+  .an-head .etx-coin { position: static; width: 44px; height: 44px; flex: none; transform: none; animation: none; aspect-ratio: auto; }
+  .an-head b { display: block; font-size: 0.98rem; --fw: 700; font-weight: var(--fw); color: var(--ink-900); line-height: 1.6; }
+  .an-head small { display: block; font-size: 0.74rem; color: var(--ink-500); }
+  .an-head .pill { margin-inline-start: auto; padding: 4px 11px; border-radius: 999px; background: var(--tint); color: var(--blue-700); font-size: 0.72rem; --fw: 620; font-weight: var(--fw); }
+  .an-chart { display: block; width: 100%; height: 96px; margin: 16px 0 14px; color: var(--blue); overflow: visible; }
+  .an-chart .ln { stroke-dasharray: 420; stroke-dashoffset: 420; animation: andraw 5s ease-in-out infinite; }
+  .an-lines { display: flex; flex-direction: column; gap: 9px; }
+  .an-lines i { height: 8px; border-radius: 99px; background: var(--bg-2); }
+  .an-lines i:nth-child(2) { width: 86%; } .an-lines i:nth-child(3) { width: 62%; }
+  .an-foot { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 16px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 0.74rem; color: var(--ink-500); }
+  .an-foot .et-logo { height: 15px; width: auto; color: var(--ink-900); }
+  .etx-art .an-fl { position: absolute; z-index: 2; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; background: var(--surface); border: 1px solid var(--line); color: var(--blue-700); box-shadow: var(--sh-2); animation: anfloat 5s ease-in-out infinite; }
+  .etx-art .an-fl svg { width: 21px; height: 21px; }
+  .etx-art .an-fl.f1 { top: 6%; inset-inline-start: 4%; animation-delay: -1.5s; } .etx-art .an-fl.f2 { bottom: 8%; inset-inline-end: 3%; animation-delay: -3s; }
+  @keyframes anfloat { 0%, 100% { transform: translateY(-6px); } 50% { transform: translateY(6px); } }
+  @keyframes andraw { 0% { stroke-dashoffset: 420; } 35%, 85% { stroke-dashoffset: 0; } 100% { stroke-dashoffset: 420; } }
+  @media (max-width: 1000px) { .etx-art { min-height: 320px; aspect-ratio: auto; } }
+  @media (prefers-reduced-motion: reduce) { .an-card, .etx-art .an-fl { animation: none; } .an-chart .ln { animation: none; stroke-dashoffset: 0; } }
+
   /* dropdown rows: a bar on the leading (right) edge on hover, not an underline */
   .nav-links .mega .mi::after {
     inset-block: 9px; inset-inline: 0 auto; width: 3px; height: auto; border-radius: 3px;
@@ -1887,6 +1946,37 @@
         <h2 class="h2 split">دارایی‌های دیگر</h2>
       </div>
       <div class="others-grid rv stg" id="others"></div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO / ECOTRUST -->
+  <section class="etx" id="portfolio">
+    <div class="wrap">
+      <div class="etx-grid">
+        <div class="etx-copy rv">
+          <h2 class="h2">نقره دیجیتال در سبد دارایی شما</h2>
+          <p>نقره دیجیتال راهی است برای اینکه بخشی از سبد دارایی به بازار کالاها وصل باشد؛ بازاری که لزوماً هم‌جهت با رمزارزها حرکت نمی‌کند. اینکه چه سهمی از دارایی‌تان را به آن اختصاص دهید، به هدف، افق زمانی و میزان ریسک‌پذیری شما بستگی دارد.</p>
+          <p>اکوتراست مشاور شخصی سرمایه‌گذاری است و سبد دارایی شما را، از ارز و طلا تا سهام و دارایی دیجیتال، کنار هم می‌بیند:</p>
+          <ul class="etx-list">
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span><b>افزودن دارایی‌ها:</b> مقدار ارز، طلا، سهام و بقیه‌ی دارایی‌هایتان را وارد می‌کنید.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span><b>سبد دارایی اختصاصی:</b> ترکیب دارایی‌ها متناسب با شرایط، هدف و سطح ریسک شما تعریف می‌شود.</span></li>
+            <li><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></i><span><b>پیشنهاد و همراهی:</b> هر وقت لازم باشد، برای تعادل سبد یا مدیریت ریسک پیشنهاد می‌گیرید.</span></li>
+          </ul>
+          <div class="etx-cta">
+            <a class="btn btn-primary" href="https://ecotrust.ir" target="_blank" rel="noopener">مشاهده تحلیل در اکوتراست <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12H4m0 0 6-6m-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+            <span class="etx-by">با همکاری <svg class="et-logo" viewBox="0 0 112 22" fill="currentColor" role="img" aria-label="اکوتراست"><path d="M55.0463 8.41889H48.8686V5.57131H55.0463V8.41889ZM11.3414 8.41889H5.14433V5.57131H11.3414V8.41889ZM41.2147 16.9575H38.4069V3.54578H41.2147V16.9606V16.9575ZM2.81294 12.3089C2.81294 13.6682 3.26802 14.1141 4.61493 14.1141H12.2322C13.3633 14.1141 13.7084 13.6682 13.7084 12.6071L13.6697 6.52431H16.4775L16.5162 12.6071V13.053C16.5162 13.7773 16.8267 14.1338 17.6086 14.1338H18.8843C19.7954 14.1338 20.106 13.8158 20.106 12.8867V6.52223H22.9138V12.5687C22.9138 13.7233 23.3149 14.1296 24.4979 14.1296H26.1574C27.0859 14.1296 27.4697 13.7191 27.4697 12.6965V8.21416H30.2928V8.95827H30.3122V13.0145C30.3122 13.5726 30.5127 14.1109 31.3852 14.1109H32.7708C33.2066 14.1109 33.4468 13.8865 33.4468 13.5342V6.52223H36.2547V13.6464C36.2353 15.4318 35.1409 16.9585 32.7729 16.9585H31.3893C30.4221 16.9585 29.6779 16.6249 29.1658 15.8777C28.5458 16.6021 27.5796 16.9741 26.1584 16.9741H24.8655C23.5511 16.9741 22.5687 16.5823 21.9324 15.9317C21.3327 16.6021 20.3829 16.9741 18.8883 16.9741H18.0678C16.7921 16.9741 15.9716 16.4898 15.4411 15.7457C14.7336 16.5085 13.6738 16.9741 12.2352 16.9741H4.61086C1.67779 16.9741 0 15.2812 0 12.3057V6.52223H2.80785V12.3099L2.81294 12.3089ZM87.6522 17.0884H85.7199V3.41379H87.6522V17.0884ZM83.8232 12.6227L83.7132 11.042C83.5687 8.90319 82.6015 7.43159 78.5007 7.22685L74.5465 7.02212V6.46403L81.3808 5.08909L80.8861 3.41483L72.7394 5.06934L72.6295 5.08805V7.71115C72.6295 8.40019 73.1752 8.97802 73.8512 9.01335L77.8247 9.21809C80.7578 9.36566 81.6516 9.72109 81.7789 10.8373L81.9968 12.8825C82.2167 15.04 81.4144 15.0982 79.3009 15.0982H71.0616V10.2989C71.0616 7.7309 69.5854 6.05664 67.3233 6.05664H66.6666C63.8435 6.05664 62.6411 7.28505 62.5312 10.2605L62.4406 13.0145C62.296 15.8974 63.6969 17.0895 66.522 17.0895H69.2026C69.11 19.5068 68.5093 20.0493 65.958 20.0493H63.1675L63.0962 21.9823H65.9957C69.5142 21.9823 70.8977 20.6614 71.027 17.0895H79.5727C82.7613 17.0895 84.1296 15.8611 83.8191 12.6227H83.8232ZM69.2087 15.0972H66.5281C64.7608 15.0972 64.2334 14.7251 64.3047 13.0706H64.324L64.378 10.2968C64.4299 8.27028 64.7944 7.8951 66.6727 7.8951H67.3294C68.5704 7.8951 69.2098 8.73171 69.2098 10.2968V15.0962L69.2087 15.0972ZM46.5352 9.46127V11.863C46.5352 13.5362 47.0982 14.1141 48.776 14.1141H56.0135C57.2545 14.1141 57.3797 13.9831 57.3797 12.7547V6.52223H60.1876V12.7547C60.1876 15.5825 58.8213 16.9585 56.0124 16.9585H48.775C47.8831 16.9585 47.1369 16.7912 46.5342 16.4202V16.6613C46.5342 20.0275 45.2025 22 41.5588 22H39.2254L39.3527 19.1524H41.5588C43.3608 19.1524 43.709 18.7066 43.709 16.6582V6.52327H46.5342V9.46335L46.5352 9.46127Z"/><path d="M107.006 8.19435C107.559 8.19435 108.005 8.65189 108.005 9.21838V11.2665C108.005 11.8329 107.559 12.2905 107.006 12.2905H99.3493C98.6137 12.2905 98.0167 12.9016 98.0167 13.6559V15.0212C98.0167 15.7755 98.6127 16.3866 99.3493 16.3866H111.002C111.554 16.3866 112 16.8442 112 17.4107V19.4587C112 20.0252 111.554 20.4828 111.002 20.4828H99.0144C98.4629 20.4828 98.0167 20.0252 98.0167 19.4587V17.752C98.0167 16.9977 97.4208 16.3866 96.6842 16.3866H95.0197C94.4663 16.3866 94.0201 15.9291 94.0201 15.3626V13.3145C94.0201 12.748 94.4663 12.2905 95.0197 12.2905H96.6842C97.4197 12.2905 98.0167 11.6794 98.0167 10.9251V8.19331H107.006V8.19435ZM111.002 0C111.554 0 112 0.457547 112 1.02403V3.0721C112 3.63859 111.554 4.09614 111.002 4.09614H99.3493C98.6137 4.09614 98.0167 4.70724 98.0167 5.46152V8.19331H95.0197C94.4663 8.19331 94.0201 7.73576 94.0201 7.16928V5.12121C94.0201 4.55472 94.4663 4.09717 95.0197 4.09717H96.6842C97.4197 4.09717 98.0167 3.48607 98.0167 2.7318V1.02507C98.0167 0.458585 98.4629 0.00103695 99.0144 0.00103695H111.002V0Z"/></svg></span>
+          </div>
+        </div>
+        <div class="etx-art rv" aria-hidden="true">
+          <span class="an-fl f1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 15l3.5-4 3 2.5L19 7"/><path d="M15 7h4v4"/></svg></span><span class="an-fl f2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 5 6v5.5c0 4.2 2.9 7.4 7 9 4.1-1.6 7-4.8 7-9V6Z"/><path d="m9.2 12 2 2 3.6-4"/></svg></span>
+          <div class="an-card">
+            <div class="an-head"><span class="etx-coin" id="etxCoin"></span><div><b>نقره دیجیتال</b><small>تحلیل و نگاه کارشناسان</small></div><span class="pill">تحلیل</span></div>
+            <svg class="an-chart" viewBox="0 0 320 96" preserveAspectRatio="none" fill="none"><defs><linearGradient id="anG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="currentColor" stop-opacity=".3"/><stop offset="1" stop-color="currentColor" stop-opacity="0"/></linearGradient><linearGradient id="anL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0f9df5"/><stop offset="1" stop-color="#4dea72"/></linearGradient></defs><path d="M0 74 C30 70 42 52 70 56 S112 78 140 60 S186 30 214 40 S262 58 286 30 S310 18 320 14 L320 96 L0 96 Z" fill="url(#anG)"/><path class="ln" d="M0 74 C30 70 42 52 70 56 S112 78 140 60 S186 30 214 40 S262 58 286 30 S310 18 320 14" stroke="url(#anL)" stroke-width="2.6" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+            <div class="an-lines"><i></i><i></i><i></i></div>
+            <div class="an-foot"><span>منتشرشده در</span><svg class="et-logo" viewBox="0 0 112 22" fill="currentColor" role="img" aria-label="اکوتراست"><path d="M55.0463 8.41889H48.8686V5.57131H55.0463V8.41889ZM11.3414 8.41889H5.14433V5.57131H11.3414V8.41889ZM41.2147 16.9575H38.4069V3.54578H41.2147V16.9606V16.9575ZM2.81294 12.3089C2.81294 13.6682 3.26802 14.1141 4.61493 14.1141H12.2322C13.3633 14.1141 13.7084 13.6682 13.7084 12.6071L13.6697 6.52431H16.4775L16.5162 12.6071V13.053C16.5162 13.7773 16.8267 14.1338 17.6086 14.1338H18.8843C19.7954 14.1338 20.106 13.8158 20.106 12.8867V6.52223H22.9138V12.5687C22.9138 13.7233 23.3149 14.1296 24.4979 14.1296H26.1574C27.0859 14.1296 27.4697 13.7191 27.4697 12.6965V8.21416H30.2928V8.95827H30.3122V13.0145C30.3122 13.5726 30.5127 14.1109 31.3852 14.1109H32.7708C33.2066 14.1109 33.4468 13.8865 33.4468 13.5342V6.52223H36.2547V13.6464C36.2353 15.4318 35.1409 16.9585 32.7729 16.9585H31.3893C30.4221 16.9585 29.6779 16.6249 29.1658 15.8777C28.5458 16.6021 27.5796 16.9741 26.1584 16.9741H24.8655C23.5511 16.9741 22.5687 16.5823 21.9324 15.9317C21.3327 16.6021 20.3829 16.9741 18.8883 16.9741H18.0678C16.7921 16.9741 15.9716 16.4898 15.4411 15.7457C14.7336 16.5085 13.6738 16.9741 12.2352 16.9741H4.61086C1.67779 16.9741 0 15.2812 0 12.3057V6.52223H2.80785V12.3099L2.81294 12.3089ZM87.6522 17.0884H85.7199V3.41379H87.6522V17.0884ZM83.8232 12.6227L83.7132 11.042C83.5687 8.90319 82.6015 7.43159 78.5007 7.22685L74.5465 7.02212V6.46403L81.3808 5.08909L80.8861 3.41483L72.7394 5.06934L72.6295 5.08805V7.71115C72.6295 8.40019 73.1752 8.97802 73.8512 9.01335L77.8247 9.21809C80.7578 9.36566 81.6516 9.72109 81.7789 10.8373L81.9968 12.8825C82.2167 15.04 81.4144 15.0982 79.3009 15.0982H71.0616V10.2989C71.0616 7.7309 69.5854 6.05664 67.3233 6.05664H66.6666C63.8435 6.05664 62.6411 7.28505 62.5312 10.2605L62.4406 13.0145C62.296 15.8974 63.6969 17.0895 66.522 17.0895H69.2026C69.11 19.5068 68.5093 20.0493 65.958 20.0493H63.1675L63.0962 21.9823H65.9957C69.5142 21.9823 70.8977 20.6614 71.027 17.0895H79.5727C82.7613 17.0895 84.1296 15.8611 83.8191 12.6227H83.8232ZM69.2087 15.0972H66.5281C64.7608 15.0972 64.2334 14.7251 64.3047 13.0706H64.324L64.378 10.2968C64.4299 8.27028 64.7944 7.8951 66.6727 7.8951H67.3294C68.5704 7.8951 69.2098 8.73171 69.2098 10.2968V15.0962L69.2087 15.0972ZM46.5352 9.46127V11.863C46.5352 13.5362 47.0982 14.1141 48.776 14.1141H56.0135C57.2545 14.1141 57.3797 13.9831 57.3797 12.7547V6.52223H60.1876V12.7547C60.1876 15.5825 58.8213 16.9585 56.0124 16.9585H48.775C47.8831 16.9585 47.1369 16.7912 46.5342 16.4202V16.6613C46.5342 20.0275 45.2025 22 41.5588 22H39.2254L39.3527 19.1524H41.5588C43.3608 19.1524 43.709 18.7066 43.709 16.6582V6.52327H46.5342V9.46335L46.5352 9.46127Z"/><path d="M107.006 8.19435C107.559 8.19435 108.005 8.65189 108.005 9.21838V11.2665C108.005 11.8329 107.559 12.2905 107.006 12.2905H99.3493C98.6137 12.2905 98.0167 12.9016 98.0167 13.6559V15.0212C98.0167 15.7755 98.6127 16.3866 99.3493 16.3866H111.002C111.554 16.3866 112 16.8442 112 17.4107V19.4587C112 20.0252 111.554 20.4828 111.002 20.4828H99.0144C98.4629 20.4828 98.0167 20.0252 98.0167 19.4587V17.752C98.0167 16.9977 97.4208 16.3866 96.6842 16.3866H95.0197C94.4663 16.3866 94.0201 15.9291 94.0201 15.3626V13.3145C94.0201 12.748 94.4663 12.2905 95.0197 12.2905H96.6842C97.4197 12.2905 98.0167 11.6794 98.0167 10.9251V8.19331H107.006V8.19435ZM111.002 0C111.554 0 112 0.457547 112 1.02403V3.0721C112 3.63859 111.554 4.09614 111.002 4.09614H99.3493C98.6137 4.09614 98.0167 4.70724 98.0167 5.46152V8.19331H95.0197C94.4663 8.19331 94.0201 7.73576 94.0201 7.16928V5.12121C94.0201 4.55472 94.4663 4.09717 95.0197 4.09717H96.6842C97.4197 4.09717 98.0167 3.48607 98.0167 2.7318V1.02507C98.0167 0.458585 98.4629 0.00103695 99.0144 0.00103695H111.002V0Z"/></svg></div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -2432,6 +2522,7 @@
 
   /* ---------- identity + headline price ---------- */
   document.getElementById("coinMark").innerHTML = coin(C.key).replace(/<\/?span[^>]*>/g, "");
+  if (document.getElementById("etxCoin")) document.getElementById("etxCoin").innerHTML = coin(C.key).replace(/<\/?span[^>]*>/g, "");
   if (document.getElementById("faqCoin")) document.getElementById("faqCoin").innerHTML = coin(C.key).replace(/<\/?span[^>]*>/g, "");
   var elPrice = document.getElementById("coinPrice"), elChg = document.getElementById("coinChg");
 
