@@ -3209,7 +3209,7 @@
            '<span class="live-dot"></span>' +
            '<span class="px num" data-t="' + i + '">' + faNum(a.price) + " تومانء</span>" +
            '<span class="dl ' + (up ? "up" : "down") + ' num" data-d="' + i + '">' +
-           toFa((up ? "+" : "") + a.change) + "٪</span></span>";
+           "\u2066" + toFa((up ? "+" : "") + a.change) + "٪\u2069</span></span>";
   }
 
   function buildTicker() {
@@ -3240,7 +3240,7 @@
       var px = faNum(a.price) + " تومانء";
       track.querySelectorAll('[data-t="' + i + '"]').forEach(function (el) { el.textContent = px; });
       track.querySelectorAll('[data-d="' + i + '"]').forEach(function (el) {
-        el.textContent = toFa((up ? "+" : "") + a.change) + "٪";
+        el.textContent = "\u2066" + toFa((up ? "+" : "") + a.change) + "٪\u2069";
         el.className = "dl " + (up ? "up" : "down") + " num";
       });
     });
@@ -3349,7 +3349,7 @@
       : '<span class="dash">قیمت‌گذاری نشده</span>';
     var chg = r.live
       ? '<span class="mk-chg ' + (up ? "up" : "down") + '">' + (up ? ARROW_UP : ARROW_DOWN) +
-        '<span class="num">' + toFa((up ? "+" : "") + r.change) + "٪</span></span>"
+        '<span class="num">' + "\u2066" + toFa((up ? "+" : "") + r.change) + "٪\u2069</span></span>"
       : '<span class="mk-chg none">…</span>';
     var act = r.live
       ? '<button class="mkc-go" type="button" data-buy="' + (r.key || "") + '" data-href="' + (r.href || "") + '">' +

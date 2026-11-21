@@ -2628,7 +2628,7 @@
     if (!elPrice) return;
     var up = C.change >= 0;
     elPrice.textContent = faNum(C.price);
-    elChg.textContent = toFa((up ? "+" : "") + C.change) + "٪ ۲۴ ساعت";
+    elChg.textContent = "\u2066" + toFa((up ? "+" : "") + C.change) + "٪\u2069 ۲۴ ساعت";
     elChg.className = "chg num " + (up ? "up" : "down");
   }
   paintHead();
@@ -2750,7 +2750,7 @@
     } else {
       var up = o.change >= 0;
       body = '<div><div class="nm">' + o.name + '</div><div class="px num">' + faNum(o.price) + " تومانء</div></div>";
-      tail = '<span class="chg ' + (up ? "up" : "down") + ' num">' + toFa((up ? "+" : "") + o.change) + "٪</span>";
+      tail = '<span class="chg ' + (up ? "up" : "down") + ' num">' + "\u2066" + toFa((up ? "+" : "") + o.change) + "٪\u2069</span>";
     }
     el.innerHTML = mark + body + tail;
     others.appendChild(el);
@@ -2877,7 +2877,7 @@
       // numbers around the chart
       var sum = 0; for (var s = 0; s < N; s++) sum += series[s];
       var chg = (series[N - 1] - series[0]) / series[0] * 100, elC = document.getElementById("csChg");
-      elC.textContent = toFa((chg >= 0 ? "+" : "") + chg.toFixed(2)) + "٪";
+      elC.textContent = "\u2066" + toFa((chg >= 0 ? "+" : "") + chg.toFixed(2)) + "٪\u2069";
       elC.className = "num " + (chg >= 0 ? "up" : "down");
       document.getElementById("csHigh").textContent = faNum(mx);
       document.getElementById("csLow").textContent = faNum(mn);
