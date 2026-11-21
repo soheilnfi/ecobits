@@ -1328,6 +1328,22 @@
   /* on the blue menu the whole logo is white, mark included */
   .side-brand .lg path { fill: #fff; }
 
+  .orb .orb-core svg { width: 6.6em; height: 6.6em; }
+
+  /* about: three short steps as a small flow, instead of the old line drawing */
+  .bn-art .mflow { display: flex; align-items: flex-start; justify-content: center; gap: 8px; width: 100%; max-width: 360px; margin-inline: auto; direction: rtl; }
+  .mflow .mf { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 8px; font-size: 0.74rem; color: var(--ink-500); white-space: nowrap; }
+  .mflow .mf i { width: 58px; height: 58px; border-radius: 18px; display: grid; place-items: center; font-style: normal; background: var(--surface); border: 1px solid var(--line); color: var(--blue-700); box-shadow: var(--sh-2); animation: mfpop 4.5s ease-in-out infinite; animation-delay: calc(var(--i) * 0.5s); }
+  .mflow .mf i svg { width: 25px; height: 25px; }
+  .mflow .mf i img { width: 42px; height: 42px; object-fit: contain; transform: scale(1.2); }
+  .mflow .mf em { position: absolute; top: -8px; inset-inline-end: -8px; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; background: var(--up); color: #fff; border: 2px solid var(--surface); animation: mfcheck 4.5s ease-in-out infinite; }
+  .mflow .mf em svg { width: 12px; height: 12px; stroke-width: 3; }
+  .mflow .ml { flex: 1 1 36px; min-width: 24px; height: 1.5px; margin-top: 29px; background: repeating-linear-gradient(90deg, var(--line-strong) 0 5px, transparent 5px 10px); animation: mfdash 1.1s linear infinite; }
+  @keyframes mfdash { to { background-position: -10px 0; } }
+  @keyframes mfpop { 0%, 18%, 100% { transform: none; border-color: var(--line); } 8% { transform: translateY(-5px); border-color: var(--blue); } }
+  @keyframes mfcheck { 0%, 26% { transform: scale(0); } 34% { transform: scale(1.15); } 40%, 92% { transform: scale(1); } 100% { transform: scale(0); } }
+  @media (prefers-reduced-motion: reduce) { .mflow .mf i, .mflow .mf em, .mflow .ml { animation: none; } }
+
   /* dropdown rows: a bar on the leading (right) edge on hover, not an underline */
   .nav-links .mega .mi::after {
     inset-block: 9px; inset-inline: 0 auto; width: 3px; height: auto; border-radius: 3px;
@@ -1862,7 +1878,7 @@
           <div class="orb-track t1"><i style="--a:25deg"><span><img src="assets/coins/btc.webp" alt="" width="120" height="120" loading="lazy" decoding="async"></span></i><i style="--a:205deg"><span><img src="assets/coins/usdt.webp" alt="" width="120" height="120" loading="lazy" decoding="async"></span></i></div>
           <div class="orb-track t2"><i style="--a:115deg"><span><img src="assets/coins/eth.webp" alt="" width="120" height="120" loading="lazy" decoding="async"></span></i><i style="--a:295deg"><span><img src="assets/coins/xaut.webp" alt="" width="120" height="120" loading="lazy" decoding="async"></span></i><i class="chip" style="--a:205deg"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></span></i></div>
           <div class="orb-track t3"><i class="chip" style="--a:60deg"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5 5 6v5.5c0 4.2 2.9 7.4 7 9 4.1-1.6 7-4.8 7-9V6Z"/><path d="m9.2 12 2 2 3.6-4"/></svg></span></i><i class="chip" style="--a:180deg"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16M7 15l3.5-4 3 2.5L19 7"/><path d="M15 7h4v4"/></svg></span></i><i class="chip" style="--a:300deg"><span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.6"/></svg></span></i></div>
-          <span class="orb-core"><svg viewBox="0 0 1080 1080"><g clip-path="url(#ebClip)"><rect fill="url(#ebGrad)" x="303.17" y="298.29" width="531.91" height="531.91" transform="translate(-136.28 183.88) rotate(-16.42)"/></g></svg></span>
+          <span class="orb-core"><svg viewBox="351 352 378 376"><g clip-path="url(#ebClip)"><rect fill="url(#ebGrad)" x="303.17" y="298.29" width="531.91" height="531.91" transform="translate(-136.28 183.88) rotate(-16.42)"/></g></svg></span>
         </div>
         <div class="copy rv">
           <h2 class="h2-xl">بازار دارایی‌های دیجیتال، <span class="mute">به زبان ساده</span></h2>
@@ -1956,19 +1972,7 @@
 
       <div class="bento rv stg">
         <article class="bn bn-lead">
-          <div class="bn-art" aria-hidden="true">
-            <svg viewBox="0 0 230 96" fill="none" stroke="currentColor" stroke-width="1.7"
-                 stroke-linecap="round" stroke-linejoin="round">
-              <rect x="150" y="22" width="62" height="52" rx="12" stroke-opacity=".5"/>
-              <path d="M163 40h22M163 52h14" stroke-opacity=".5"/>
-              <rect x="18" y="22" width="62" height="52" rx="12" stroke-opacity=".5"/>
-              <path d="M31 40h22M31 52h14" stroke-opacity=".5"/>
-              <path d="M142 48h-54" stroke-opacity=".32" stroke-dasharray="5 7"/>
-              <path d="M96 42l-8 6 8 6" stroke-opacity=".32"/>
-              <circle cx="115" cy="48" r="17" stroke="#0f9df5"/>
-              <path d="M108 48.5l4.6 4.6 9.4-10" stroke="#33cf87" stroke-width="2.2"/>
-            </svg>
-          </div>
+          <div class="bn-art" aria-hidden="true"><div class="mflow"><span class="mf" style="--i:0"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.5" r="3.6"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></i>ساخت حساب</span><span class="ml"></span><span class="mf" style="--i:1"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></i>واریز تومان</span><span class="ml"></span><span class="mf" style="--i:2"><i><img src="assets/coins/btc.webp" alt="" width="80" height="80" loading="lazy" decoding="async"></i>خرید<em><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></em></span></div></div>
           <h3>تجربه‌ی ساده و روان</h3>
           <p>مسیر خرید در چند قدم کوتاه تمام می‌شود؛ بدون اصطلاحات فنی و بدون مرحله‌ی اضافه. همان چیزی که باعث شد اکوبیتس ساخته شود.</p>
         </article>
