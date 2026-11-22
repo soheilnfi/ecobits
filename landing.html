@@ -1787,6 +1787,14 @@
   }
   @media (max-width: 760px) and (max-height: 700px) { html body .hero .hero-sub { display: none; } }
 
+  /* buy / sell tabs: larger, and the active one is filled with its own colour */
+  html body .hero .qb-mode { padding: 4px; background: var(--bg-2); border-color: var(--line); }
+  html body .hero .qb-mode button { padding: 9px 30px; font-size: 0.95rem; --fw: 680; font-weight: var(--fw); color: var(--ink-700); }
+  html body .hero .qb-mode button[aria-selected="true"] { color: #fff; box-shadow: 0 8px 18px -10px rgba(7, 42, 74, 0.55); }
+  html body .hero .qb-mode #qbBuy[aria-selected="true"] { background: linear-gradient(to left, #12a86b, #3fdc93); }
+  html body .hero .qb-mode #qbSell[aria-selected="true"] { background: linear-gradient(to left, #d93a52, #ff7a6b); }
+  @media (max-width: 760px) { html body .hero .qb-mode button { padding: 8px 24px; font-size: 0.9rem; } }
+
   /* ============ HOME HERO: copy centred on top, the trade box as one wide search-style bar ============ */
   html body .hero .hero-grid { display: flex; flex-direction: column; align-items: center; gap: 34px; width: 100%; }
   html body .hero .hero-top { align-items: center; text-align: center; max-width: 780px; }
