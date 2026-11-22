@@ -638,11 +638,11 @@ idx = open("index.html", encoding="utf8").read()
 if "<!-- BLOG:START" in idx:
     a = idx.index("  <!-- BLOG:START"); b = idx.index("<!-- BLOG:END -->") + len("<!-- BLOG:END -->\n")
     idx = idx[:a] + HOME + idx[b:]
-else:
+elif '  <section class="hfaq" id="home-faq">' in idx:
     anchor = '  <section class="hfaq" id="home-faq">'
     k = idx.index(anchor); k = idx.rfind("\n", 0, idx.rfind("<!--", 0, k)) + 1 if "<!--" in idx[k - 120:k] else k
     idx = idx[:k] + HOME + "\n" + idx[k:]
-if "BLOG: post cards" not in idx:
+if "BLOG: post cards" not in idx and "<!-- BLOG:START" in idx:
     assert idx.count(MARK) == 1
     idx = idx.replace(MARK, HOME_CSS + MARK)
 open("index.html", "w", encoding="utf8").write(idx)

@@ -1759,6 +1759,32 @@
   /* on the blue menu the whole logo is white, mark included */
   .side-brand .lg path { fill: #fff; }
 
+  /* ============ HOME = ONE SCREEN: header, hero, price strip. Nothing scrolls. ============ */
+  html, body { height: 100%; overflow: hidden; }
+  body { display: flex; flex-direction: column; }
+  body > main, .pagecard > main { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; overflow: hidden; }
+  .pagecard { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+  html body main > .hero { flex: 1 1 auto; min-height: 0; justify-content: center; padding-block: 16px calc(16px + 57px); }
+  footer.site, .progress { display: none; }
+  :root body.tk-dock main .ticker { animation: none; }
+  @media (max-width: 760px) {
+    html body main > .hero { justify-content: flex-start; padding-block: 12px calc(12px + 46px + 62px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
+    html body .hero .hero-top h1 { font-size: clamp(1.5rem, 6.4vw, 2rem); line-height: 1.5; }
+    html body .hero .hero-sub { font-size: 0.9rem; line-height: 1.9; margin-top: 6px; }
+    html body .hero .hero-grid { gap: 14px; }
+    html body .qb { padding: 14px; }
+    html body .qb-panel { padding: 11px 13px 12px; }
+    html body .qb:not(.sell) .qb-panel.p-toman, html body .qb.sell .qb-panel.p-asset { padding-bottom: 24px; }
+    html body .qb:not(.sell) .qb-panel.p-asset, html body .qb.sell .qb-panel.p-toman { padding-top: 20px; }
+    html body .qb-panel input { font-size: 1.35rem; }
+    html body .qb .qb-quick, html body .qb .qb-assets { margin-top: 8px; flex-wrap: nowrap; gap: 5px; }
+    html body .qb .qb-quick button { padding: 5px 9px; font-size: 0.72rem; white-space: nowrap; }
+    html body .qb .qb-asset { padding: 4px 9px 4px 7px; font-size: 0.74rem; white-space: nowrap; }
+    html body .qb-meta { margin-top: 10px; }
+    html body main > .hero > * { flex-shrink: 0; }
+  }
+  @media (max-width: 760px) and (max-height: 700px) { html body .hero .hero-sub { display: none; } }
+
   /* dropdown rows: a bar on the leading (right) edge on hover, not an underline */
   .nav-links .mega .mi::after {
     inset-block: 9px; inset-inline: 0 auto; width: 3px; height: auto; border-radius: 3px;
@@ -2104,13 +2130,6 @@
 </header>
 
 <main>
-  <div class="qbpin" id="qbPin" aria-hidden="true">
-    <div class="wrap">
-      <button class="qbpin-info" type="button" data-go=""><span class="t">خرید و فروش سریع</span><span class="num">۱ <span id="qbPinName">تتر</span> = <b id="qbPinUnit">…</b></span></button>
-      <button class="b buy" type="button" data-go="buy">خرید</button>
-      <button class="b sell" type="button" data-go="sell">فروش</button>
-    </div>
-  </div>
   <!-- 2، HERO -->
   <section class="hero" id="hero">
     <div class="hero-bg" id="heroBg" aria-hidden="true">
@@ -2129,10 +2148,6 @@
       <div class="rv sec-copy hero-top">
         <h1 class="split"><span class="thin nosplit">دنیای رمزارز،</span><span class="grad nosplit">ساده‌تر از همیشه</span></h1>
         <p class="hero-sub">با تومان بخرید، در حساب خودتان نگه دارید، هر وقت خواستید بفروشید.</p>
-        <div class="hero-cta">
-          <a class="btn btn-ink" href="https://ecobits.ir/auth">شروع خرید و فروش <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a>
-          <a class="txtlink" href="#markets" data-scroll="#markets">مشاهده بازارها <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m14 6-6 6 6 6"/></svg></a>
-        </div>
       </div>
 
       <div class="hero-right rv">
@@ -2180,273 +2195,6 @@
 
   <!-- 3، MARKET TICKER -->
   <div class="ticker" aria-hidden="true"><div class="ticker-track" id="tickerTrack"></div></div>
-
-  <!-- 3b، TRUST BAR -->
-  <section class="trust" aria-label="چرا می‌توانید به اکوبیتس اعتماد کنید">
-    <div class="wrap">
-      <ul class="trust-list rv">
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10m4 10V10m4 10V10m4 10V10M3 10l9-6 9 6Z"/></svg></span><div><b>عضو اکوهلدینگ</b><span class="d">بخشی از یک مجموعه‌ی مالی</span></div></li>
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></span><div><b>فقط تومانی و بانکی</b><span class="d">واریز و برداشت با حساب بانکی</span></div></li>
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.8"/></svg></span><div><b>هزینه‌ی بدون غافل‌گیری</b><span class="d">نمایش کارمزد پیش از تأیید</span></div></li>
-        <li><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5 5 6v5.5c0 4.2 2.9 7.4 7 9 4.1-1.6 7-4.8 7-9V6Z"/><path d="m9.2 12 2 2 3.6-3.8"/></svg></span><div><b>بدون وعده‌ی سود</b><span class="d">سود یا سرمایه را تضمین نمی‌کنیم</span></div></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- 4، PROMOTIONAL BANNERS (slider, full width) -->
-  <section class="promos" id="promos">
-    <div class="wrap">
-      <div class="slider rv" id="promoSlider" aria-roledescription="carousel" aria-label="کمپین‌ها و خبرها">
-        <div class="sl-view">
-          <div class="sl-track" id="promoTrack">
-
-            <article class="promo p1">
-              <div class="promo-copy">
-                <span class="tagline">شروع کنید</span>
-                <h3>با هر مبلغی، اولین خریدتان را انجام دهید</h3>
-                <p>از همان مبلغی که راحت‌اید شروع کنید.</p>
-              </div>
-              <div class="promo-art"><svg viewBox="0 0 300 160" fill="none" aria-hidden="true"><defs><linearGradient id="pg1a" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5ec8ff"/><stop offset="1" stop-color="#0a6cae"/></linearGradient><linearGradient id="pg1b" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffffff" stop-opacity=".34"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/></linearGradient><linearGradient id="pg1c" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4cc3ff"/><stop offset="1" stop-color="#9ae6ff"/></linearGradient></defs><ellipse cx="96" cy="140" rx="86" ry="16" fill="#4cc3ff" opacity=".12"/><path d="M42 122 a54 18 0 0 0 108 0 v11 a54 18 0 0 1 -108 0 z" fill="url(#pg1a)" opacity=".55"/><ellipse cx="96" cy="122" rx="54" ry="18" fill="url(#pg1a)"/><ellipse cx="96" cy="122" rx="54" ry="18" fill="url(#pg1b)"/><ellipse cx="96" cy="122" rx="47" ry="15" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1"/><path d="M42 100 a54 18 0 0 0 108 0 v11 a54 18 0 0 1 -108 0 z" fill="url(#pg1a)" opacity=".55"/><ellipse cx="96" cy="100" rx="54" ry="18" fill="url(#pg1a)"/><ellipse cx="96" cy="100" rx="54" ry="18" fill="url(#pg1b)"/><ellipse cx="96" cy="100" rx="47" ry="15" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1"/><path d="M42 78 a54 18 0 0 0 108 0 v11 a54 18 0 0 1 -108 0 z" fill="url(#pg1a)" opacity=".55"/><ellipse cx="96" cy="78" rx="54" ry="18" fill="url(#pg1a)"/><ellipse cx="96" cy="78" rx="54" ry="18" fill="url(#pg1b)"/><ellipse cx="96" cy="78" rx="47" ry="15" fill="none" stroke="#fff" stroke-opacity=".3" stroke-width="1"/><text x="96" y="85" text-anchor="middle" font-size="22" font-weight="700" fill="#fff" fill-opacity=".85">ت</text><g class="float"><path d="M150 104 L196 68 L224 86 L272 36" stroke="url(#pg1c)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M248 32 L276 32 L276 60" stroke="url(#pg1c)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="196" cy="68" r="5.5" fill="#9ae6ff"/><circle cx="224" cy="86" r="5.5" fill="#9ae6ff"/></g></svg></div>
-              <a class="go" href="https://ecobits.ir/auth">ساخت حساب <span class="chev"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></a>
-            </article>
-
-          </div>
-        </div>
-
-        <button class="sl-nav prev" type="button" id="promoPrev" aria-label="بنر قبلی">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m14 6-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <button class="sl-nav next" type="button" id="promoNext" aria-label="بنر بعدی">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m10 6 6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <div class="sl-dots" id="promoDots" role="tablist" aria-label="انتخاب بنر"></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5، MARKETS & ASSETS -->
-  <section class="markets" id="markets">
-    <div class="wrap">
-      <div class="nhead rv">
-        <h2 class="h2">بازارها و <span class="mute">دارایی‌ها</span></h2>
-      </div>
-
-      <div class="mk-bar rv">
-        <div class="mk-tabs" role="tablist" aria-label="دسته‌بندی بازارها" id="mkTabs"></div>
-      </div>
-
-      <div class="mk-grid rv" id="mkTable"></div>
-
-    </div>
-  </section>
-
-  <!-- 5b، HOW YOUR MONEY IS HANDLED -->
-  <section class="assure" id="assure">
-    <div class="wrap">
-      <div class="nhead rv">
-        <h2 class="h2">با پول و دارایی شما <span class="mute">چطور رفتار می‌کنیم</span></h2>
-        <p class="lead">چهار قاعده‌ی ساده که پیش از ساخت حساب بهتر است بدانید.</p>
-      </div>
-
-      <div class="bento stg">
-        <article class="bx bx-dark">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 20V10m4 10V10m4 10V10m4 10V10M3 10l9-6 9 6Z"/></svg></span>
-          <h3>پشتوانه‌ی یک مجموعه‌ی مالی</h3>
-          <p>اکوبیتس بازوی دارایی‌های دیجیتال اکوهلدینگ است و بر تجربه و زیرساخت همان مجموعه تکیه دارد. <a class="lnk" href="about.html">درباره ما</a></p>
-          <div class="art"><svg viewBox="0 0 270 190" fill="none" aria-hidden="true">
-            <defs>
-              <linearGradient id="nmG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0f9df5"/><stop offset=".55" stop-color="#1eb0d4"/><stop offset="1" stop-color="#4dea72"/></linearGradient>
-              <linearGradient id="nmCol" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#cfeaff"/><stop offset="1" stop-color="#3f86b8"/></linearGradient>
-              <radialGradient id="nmGlow" cx=".5" cy="1" r=".7"><stop offset="0" stop-color="#3bb4ff" stop-opacity=".55"/><stop offset="1" stop-color="#3bb4ff" stop-opacity="0"/></radialGradient>
-            </defs>
-            <ellipse cx="135" cy="182" rx="130" ry="46" fill="url(#nmGlow)"/>
-            <g class="pl p1"><path d="M23 134 L135 176 L247 134 L247 144 L135 186 L23 144 Z" fill="#0d2233"/><path d="M23 134 L135 92 L247 134 L135 176 Z" fill="#17354f" stroke="#ffffff" stroke-opacity=".16" stroke-width="1"/></g>
-            <g class="pl p2"><path d="M45 104 L135 138 L225 104 L225 114 L135 148 L45 114 Z" fill="#143a5a"/><path d="M45 104 L135 70 L225 104 L135 138 Z" fill="#215480" stroke="#ffffff" stroke-opacity=".16" stroke-width="1"/></g>
-            <g class="pl p3"><path d="M67 74 L135 100 L203 74 L203 84 L135 110 L67 84 Z" fill="#0b78bd"/><path d="M67 74 L135 48 L203 74 L135 100 Z" fill="url(#nmG)" stroke="#ffffff" stroke-opacity=".16" stroke-width="1"/></g>
-          </svg></div>
-        </article>
-
-        <article class="bx bx-wide">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></span>
-          <div class="art">
-            <div class="rail" aria-hidden="true">
-              <span class="node"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></i>حساب بانکی شما</span>
-              <span class="track loop"><svg class="lp" aria-hidden="true"><rect class="lp-base"/><rect class="lp-run" pathLength="100"/></svg><span><b>واریز تومان</b></span><span><b>برداشت تومان</b></span></span>
-              <span class="node me"><i><svg class="mk" viewBox="0 0 1080 1080" aria-hidden="true"><g clip-path="url(#ebClip)"><rect fill="url(#ebGrad)" x="303.17" y="298.29" width="531.91" height="531.91" transform="translate(-136.28 183.88) rotate(-16.42)"/></g></svg></i>حساب اکوبیتس</span>
-            </div>
-          </div>
-          <h3>ورود و خروج پول فقط از بانک</h3>
-          <p>واریز و برداشت فقط تومانی است و از مسیر بانکی، با همان حساب بانکی خودتان انجام می‌شود.</p>
-        </article>
-
-        <article class="bx">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg></span>
-          <div class="art"><div class="nolist" aria-hidden="true"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7.5A2.5 2.5 0 0 1 6.5 5H18v3M4 7.5V17a2.5 2.5 0 0 0 2.5 2.5H20V8H6.5A2.5 2.5 0 0 1 4 7.5Z"/><path d="M16.5 13.8h.01"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3A4 4 0 0 0 11 18.7l1-1"/></svg></i><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><path d="M14 14h2v2m4-2v6h-6v-2"/></svg></i></div></div>
-          <h3>انتقال روی بلاک‌چین نداریم</h3>
-          <p>واریز و برداشت مستقیم رمزارز و اتصال کیف‌پول خارجی ارائه نمی‌شود؛ از همین ابتدا می‌گوییم تا بعداً غافل‌گیر نشوید.</p>
-        </article>
-
-        <article class="bx">
-          <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12Z"/><circle cx="12" cy="12" r="2.8"/></svg></span>
-          <div class="art"><div class="slip" aria-hidden="true"><div>قیمت واحد</div><div>کارمزد</div><div class="tot">مبلغ نهایی</div></div></div>
-          <h3>اول می‌بینید، بعد تأیید می‌کنید</h3>
-          <p>قیمت، کارمزد و مبلغ نهایی هر سفارش پیش از تأیید نمایش داده می‌شود. <a class="lnk" href="terms.html#sec8">جزئیات کارمزدها</a></p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5b2، SERVICE STATUS -->
-  <section class="stx" id="status" aria-labelledby="stxTitle">
-    <div class="wrap">
-      <div class="stx-card rv">
-        <div class="stx-head">
-          <span class="stx-orb" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
-          <div>
-            <h2 id="stxTitle">وضعیت سرویس‌ها را پنهان نمی‌کنیم</h2>
-            <p>هر بخش جداگانه پایش می‌شود و سابقه‌ی ۹۰ روز گذشته‌اش، با همه‌ی اختلال‌ها، در یک صفحه‌ی عمومی است.</p>
-          </div>
-          <a class="pillbtn" href="status.html">صفحه‌ی وضعیت <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg></a>
-        </div>
-        <ul class="stx-list">
-          <li><b>معاملات</b><span>خرید و فروش، قیمت‌گذاری</span></li>
-          <li><b>واریز و برداشت</b><span>درگاه و تسویه‌ی تومانی</span></li>
-          <li><b>حساب کاربری</b><span>ورود، پیامک، احراز هویت</span></li>
-          <li><b>وب‌سایت و پشتیبانی</b><span>صفحات و پاسخ‌گویی</span></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5c، HOW IT WORKS -->
-  <section class="steps" id="steps">
-    <div class="wrap">
-      <div class="howto" id="howto">
-        <div class="copy rv">
-          <h2 class="h2">از ثبت‌نام تا برداشت، <span class="mute">در چهار قدم</span></h2>
-          <div class="hp-stack">
-            <div class="hp on" role="tabpanel" id="hp0" aria-labelledby="hb0"><h3>حساب بسازید</h3><p>شماره موبایلتان را وارد می‌کنید و کد تأیید پیامک می‌شود. احراز هویت هم در همین مسیر انجام می‌شود.</p></div>
-            <div class="hp" role="tabpanel" id="hp1" aria-labelledby="hb1"><h3>تومان واریز کنید</h3><p>از حساب بانکی خودتان، به تومان. نیازی به کیف‌پول یا آدرس ندارید.</p></div>
-            <div class="hp" role="tabpanel" id="hp2" aria-labelledby="hb2"><h3>دارایی بخرید</h3><p>تتر، بیت‌کوین یا اتریوم را انتخاب می‌کنید و پیش از تأیید، قیمت و کارمزد را می‌بینید.</p></div>
-            <div class="hp" role="tabpanel" id="hp3" aria-labelledby="hb3"><h3>بفروشید و برداشت کنید</h3><p>هر وقت خواستید می‌فروشید و تومان را به حساب بانکی‌تان برداشت می‌کنید.</p></div>
-          </div>
-          <div class="howto-nav" role="tablist" aria-label="قدم‌ها">
-            <button type="button" role="tab" class="num" id="hb0" aria-controls="hp0" aria-selected="true" aria-label="قدم ۱: حساب بسازید">۱</button>
-            <button type="button" role="tab" class="num" id="hb1" aria-controls="hp1" aria-selected="false" aria-label="قدم ۲: تومان واریز کنید">۲</button>
-            <button type="button" role="tab" class="num" id="hb2" aria-controls="hp2" aria-selected="false" aria-label="قدم ۳: دارایی بخرید">۳</button>
-            <button type="button" role="tab" class="num" id="hb3" aria-controls="hp3" aria-selected="false" aria-label="قدم ۴: بفروشید و برداشت کنید">۴</button>
-            <a class="btn btn-primary" href="https://ecobits.ir/auth">ساخت حساب</a>
-          </div>
-        </div>
-        <div class="howto-art rv" aria-hidden="true">
-          <div class="ha-stack">
-            <div class="ha on"><div class="idcard"><span class="av"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"/><path d="M5 19.5c1.2-3.2 3.8-4.8 7-4.8s5.8 1.6 7 4.8"/></svg></span><span class="cap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="3" width="10" height="18" rx="2.5"/><path d="M11 17.5h2"/></svg> کد تأیید پیامکی</span><span class="otp"><i style="--i:0"></i><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i></span></div></div>
-            <div class="ha"><div class="rail"><span class="node"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="18" height="13" rx="2.5"/><path d="M3 10.5h18M7 15h3"/></svg></i>حساب بانکی شما</span><span class="track"><span><b>واریز تومان</b></span></span><span class="node me"><i><svg class="mk" viewBox="0 0 1080 1080" aria-hidden="true"><g clip-path="url(#ebClip)"><rect fill="url(#ebGrad)" x="303.17" y="298.29" width="531.91" height="531.91" transform="translate(-136.28 183.88) rotate(-16.42)"/></g></svg></i>حساب اکوبیتس</span></div></div>
-            <div class="ha"><span class="coinrow"><i style="--i:0"><img class="cimg" src="assets/coins/usdt.webp" alt="تتر" width="64" height="64" decoding="async"></i><i style="--i:1"><img class="cimg" src="assets/coins/btc.webp" alt="بیت‌کوین" width="64" height="64" decoding="async"></i><i style="--i:2"><img class="cimg" src="assets/coins/eth.webp" alt="اتریوم" width="64" height="64" decoding="async"></i></span><div class="slip"><div>قیمت واحد</div><div>کارمزد</div><div class="tot">مبلغ نهایی</div></div></div>
-            <div class="ha"><div class="payout"><div class="po-row"><span class="po-coin"><img src="assets/coins/usdt.webp" alt="" width="64" height="64" decoding="async"></span><span class="po-flow" aria-hidden="true"><i></i><i></i><i></i></span><span class="po-tmn">تومانء</span></div><div class="po-card"><span class="po-chip"></span><span class="po-dots" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="po-lbl">حساب بانکی شما</span><span class="po-ok"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span></div></div></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOG:START (generated by tools/build-blog.py) -->
-  <section class="hblog" id="blog">
-    <div class="wrap">
-      <div class="nhead rv">
-        <h2 class="h2">تازه‌ترین مطالب <span class="mute">بلاگ</span></h2>
-      </div>
-      <div class="pgrid swipe rv stg"><article class="pcard"><a class="cv" href="blog-tether-chist.html" tabindex="-1" aria-hidden="true"><img src="assets/blog/tether.svg" alt="سکه‌ی تتر در کنار یک کارت بانکی، نماد خرید تتر با تومان" width="1200" height="630" loading="lazy" decoding="async"></a><div class="bd"><a class="pcat" href="blog-cat-kharid.html">راهنمای خرید</a><h3><a href="blog-tether-chist.html">تتر چیست و چطور با تومان تتر بخریم؟</a></h3><p>تتر پرمعامله‌ترین استیبل‌کوین دنیاست. در این راهنما می‌خوانید تتر چیست، قیمتش از کجا می‌آید و خرید آن با تومان چه مراحلی دارد.</p><div class="pmeta"><time datetime="2026-11-21">۳۰ آبان ۱۴۰۵</time><i></i><span>۲ دقیقه مطالعه</span></div></div></article><article class="pcard"><a class="cv" href="blog-kharid-bitcoin.html" tabindex="-1" aria-hidden="true"><img src="assets/blog/bitcoin.svg" alt="سکه‌ی بیت‌کوین روی نمودار صعودی قیمت" width="1200" height="630" loading="lazy" decoding="async"></a><div class="bd"><a class="pcat" href="blog-cat-amoozesh.html">آموزش پایه</a><h3><a href="blog-kharid-bitcoin.html">راهنمای خرید بیت‌کوین برای تازه‌کارها</a></h3><p>لازم نیست یک بیت‌کوین کامل بخرید. در این راهنما با مفاهیم پایه، روش خرید بیت‌کوین با تومان و اشتباه‌های رایج تازه‌کارها آشنا می‌شوید.</p><div class="pmeta"><time datetime="2026-11-17">۲۶ آبان ۱۴۰۵</time><i></i><span>۲ دقیقه مطالعه</span></div></div></article><article class="pcard"><a class="cv" href="blog-rwa-chist.html" tabindex="-1" aria-hidden="true"><img src="assets/blog/rwa.svg" alt="شمش‌های طلا در کنار سکه‌ی تترگلد، نماد دارایی‌های واقعی توکنیزه‌شده" width="1200" height="630" loading="lazy" decoding="async"></a><div class="bd"><a class="pcat" href="blog-cat-rwa.html">دارایی‌های واقعی</a><h3><a href="blog-rwa-chist.html">دارایی‌های واقعی توکنیزه‌شده (RWA) چیست؟</a></h3><p>طلا، نقره و نفت هم می‌توانند به شکل توکن دیجیتال معامله شوند. در این مطلب می‌خوانید RWA چیست، چه مزایا و ریسک‌هایی دارد و تترگلد چگونه کار می‌کند.</p><div class="pmeta"><time datetime="2026-11-12">۲۱ آبان ۱۴۰۵</time><i></i><span>۲ دقیقه مطالعه</span></div></div></article></div>
-      <p class="hblog-more rv"><a class="btn btn-ghost" href="blog.html">همه‌ی مطالب بلاگ <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12H4m0 0 6-6m-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></p>
-    </div>
-  </section>
-  <!-- BLOG:END -->
-
-  <!-- 5d، SHORT FAQ -->
-  <section class="hfaq" id="home-faq">
-    <div class="wrap">
-      <div class="faq2">
-        <div class="faq2-side rv">
-          <h2 class="h2">پیش از شروع، <span class="mute">این‌ها را می‌پرسند</span></h2>
-          <p>پاسخ کوتاه و بی‌تعارف به چیزهایی که به پول شما مربوط است.</p>
-          <div class="acts">
-            <a class="pillbtn" href="faq.html">همه‌ی سؤالات <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg></a>
-            <a class="pillbtn" href="contact.html">تماس با ما <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></svg></a>
-          </div>
-        </div>
-        <div class="hfaq-list rv">
-          <details><summary>آیا اکوبیتس سود یا اصل سرمایه را تضمین می‌کند؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>خیر. ارزش رمزارز نوسان دارد و ممکن است کم یا زیاد شود. اکوبیتس هیچ سود یا تضمین سرمایه‌ای ارائه نمی‌دهد.</p></details>
-          <details><summary>کارمزد خرید و فروش چقدر است؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>کارمزد و مبلغ نهایی هر سفارش پیش از تأیید به شما نمایش داده می‌شود و بدون تأیید شما چیزی کسر نمی‌شود. روش محاسبه در <a href="terms.html#sec8">بخش کارمزدها</a> آمده است.</p></details>
-          <details><summary>می‌توانم رمزارزم را به کیف‌پول دیگری منتقل کنم؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>خیر. واریز و برداشت مستقیم رمزارز روی شبکه‌ی بلاک‌چین و اتصال کیف‌پول خارجی ارائه نمی‌شود. برای خارج‌کردن پول، دارایی را می‌فروشید و تومان برداشت می‌کنید.</p></details>
-          <details><summary>پولم را چطور برداشت کنم؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>برداشت فقط تومانی است و از مسیر بانکی به حساب بانکی خودتان انجام می‌شود. کارمزد برداشت پیش از تأیید درخواست نمایش داده می‌شود.</p></details>
-          <details><summary>الان چه دارایی‌هایی را می‌توانم بخرم؟<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></summary><p>تتر، بیت‌کوین و اتریوم. دارایی‌های توکنیزه‌شده مثل طلا و نقره و همچنین استیکینگ هنوز فعال نیستند.</p></details>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7، SEO ARTICLE -->
-  <section class="seo" id="guide" aria-labelledby="seoTitle">
-    <div class="wrap">
-      <div class="seo-box" id="seoBox">
-        <h2 id="seoTitle">خرید و فروش رمزارز با تومان در اکوبیتس</h2>
-        <p>اکوبیتس یک صرافی رمزارز است که خرید، فروش و نگهداری دارایی‌های دیجیتال را با تومان ممکن می‌کند. هدف این است که برای خرید <a href="coin-btc.html">بیت‌کوین</a>، <a href="coin-eth.html">اتریوم</a> یا <a href="coin-usdt.html">تتر</a> لازم نباشد با کیف‌پول، آدرس و شبکه‌ی بلاک‌چین درگیر شوید. در ادامه، مفاهیم پایه‌ای که پیش از اولین خرید به کارتان می‌آید را مرور می‌کنیم.</p>
-
-        <h3>صرافی رمزارز چیست و چطور کار می‌کند؟</h3>
-        <p>صرافی رمزارز بستری است که در آن می‌توانید دارایی دیجیتال را با پول رایج بخرید یا بفروشید. صرافی‌ها معمولاً در دو دسته قرار می‌گیرند: <strong>صرافی متمرکز</strong> که یک مجموعه میان خریدار و فروشنده قرار می‌گیرد و سفارش‌ها را ثبت و تسویه می‌کند، و <strong>صرافی غیرمتمرکز</strong> که معامله در آن مستقیم میان کیف‌پول کاربران و روی بلاک‌چین انجام می‌شود.</p>
-        <p>صرافی متمرکز برای شروع ساده‌تر است، چون با حساب کاربری و پول رایج کار می‌کند. صرافی غیرمتمرکز به کیف‌پول شخصی و آشنایی با شبکه‌ها و کارمزد آن‌ها نیاز دارد و برای کاربر تازه‌کار پیچیده‌تر است.</p>
-
-        <h3>اکوبیتس چه تفاوتی دارد؟</h3>
-        <p>در اکوبیتس ورود و خروج پول فقط تومانی است و از مسیر بانکی، با حساب بانکی خودتان انجام می‌شود. واریز یا برداشت مستقیم رمزارز روی بلاک‌چین و اتصال کیف‌پول خارجی ارائه نمی‌شود. این یعنی مسیر ساده‌تر است، ولی اگر قصد دارید رمزارز را به کیف‌پول شخصی منتقل کنید، اکوبیتس فعلاً این امکان را ندارد.</p>
-        <p>قیمت، کارمزد و مبلغ نهایی هر سفارش پیش از تأیید نمایش داده می‌شود. جزئیات در <a href="terms.html#sec8">بخش کارمزدها</a> و پاسخ پرسش‌های رایج در <a href="faq.html">سؤالات متداول</a> آمده است.</p>
-
-        <h3>چطور یک صرافی رمزارز را انتخاب کنیم؟</h3>
-        <p>پیش از ثبت‌نام در هر صرافی، این موارد را بررسی کنید:</p>
-        <ul class="dots">
-          <li>هویت و پشتوانه‌ی مجموعه‌ای که صرافی را اداره می‌کند</li>
-          <li>شفافیت قیمت و کارمزد پیش از ثبت سفارش</li>
-          <li>روش واریز و برداشت و محدودیت‌های آن</li>
-          <li>قوانین و مقررات مکتوب و در دسترس</li>
-          <li>راه‌های ارتباط با پشتیبانی</li>
-        </ul>
-
-        <h3>بیت‌کوین، اتریوم و تتر چه هستند؟</h3>
-        <p><strong>بیت‌کوین</strong> اولین و شناخته‌شده‌ترین رمزارز است و عرضه‌ی آن سقف مشخصی دارد. <strong>اتریوم</strong> شبکه‌ای است که علاوه بر انتقال ارزش، اجرای قراردادهای هوشمند را ممکن می‌کند و واحد آن اتر نام دارد. <strong>تتر</strong> یک استیبل‌کوین است که ارزش آن به دلار آمریکا وابسته است و به همین دلیل نوسان کمتری نسبت به دو مورد دیگر دارد.</p>
-        <p>این سه دارایی در اکوبیتس قابل خرید و فروش‌اند. فهرست کامل را در بخش <a href="#markets">بازارها و دارایی‌ها</a> ببینید.</p>
-
-        <h3>پیش از خرید رمزارز چه چیزهایی را بدانیم؟</h3>
-        <p>ارزش رمزارزها نوسان دارد و ممکن است در مدت کوتاهی کم یا زیاد شود. اکوبیتس هیچ سود یا تضمین سرمایه‌ای ارائه نمی‌دهد. با مبلغی شروع کنید که از دست رفتن بخشی از آن برنامه‌ی مالی شما را به هم نمی‌ریزد، و پیش از تأیید هر سفارش، قیمت و کارمزد را مرور کنید.</p>
-      </div>
-      <button class="btn btn-ghost seo-more" type="button" id="seoMore" aria-expanded="false" aria-controls="seoBox">
-        <span>ادامه‌ی مطلب</span>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg>
-      </button>
-    </div>
-  </section>
-
-  <!-- 6، QUICK REGISTRATION -->
-  <section class="signup" id="signup">
-    <div class="wrap">
-      <div class="signup-card rv">
-        <span class="signup-ring" aria-hidden="true"></span>
-        <span class="aura" aria-hidden="true"></span>
-        <span class="sheen" aria-hidden="true"></span>
-
-        <div class="signup-copy">
-          <h2 class="h2-xl">برای شروع سرمایه‌گذاری، <span class="mute">حساب کاربری بسازید</span></h2>
-          <p class="sub">ثبت‌نام با شماره موبایل انجام می‌شود و بعد با تومان خرید می‌کنید.</p>
-
-          <div class="signup-form signup-cta">
-            <a class="btn btn-primary signup-go" id="signupBtn" href="https://ecobits.ir/auth">
-              <span class="lbl">ساخت حساب</span>
-              <svg class="arw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 12H4m0 0 6-6m-6 6 6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
 </main>
 
@@ -2828,7 +2576,7 @@
   function onScroll() {
     var y = window.scrollY;
     header.classList.toggle("stuck", y > 8);
-    document.body.classList.toggle("tk-dock", y > 8);
+    document.body.classList.add("tk-dock");   // the home page does not scroll: the strip is always in place
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.transform = "scaleX(" + (max > 0 ? y / max : 0) + ")";
   }
@@ -3269,8 +3017,9 @@
   })(0)(performance.now());
 
   /* ================= MARKETS & ASSETS ================= */
-  var mkTabs = document.getElementById("mkTabs");
-  var mkTable = document.getElementById("mkTable");
+  // the markets section is not on the page any more: the code below then works on detached nodes and shows nothing
+  var mkTabs = document.getElementById("mkTabs") || document.createElement("div");
+  var mkTable = document.getElementById("mkTable") || document.createElement("div");
   var mkSearch = document.getElementById("mkSearch") || { value: "", addEventListener: function () {} };
   var activeTab = 0;
 
