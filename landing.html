@@ -1767,7 +1767,7 @@
   footer.site, .progress { display: none; }
   :root body.tk-dock main .ticker { animation: none; }
   @media (max-width: 760px) {
-    html body main > .hero { justify-content: flex-start; padding-block: 12px calc(12px + 46px + 62px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
+    html body main > .hero { justify-content: safe center; padding-block: 12px calc(12px + 46px + 62px + env(safe-area-inset-bottom, 0px)); overflow-y: auto; }
     html body .hero .hero-top h1 { font-size: clamp(1.5rem, 6.4vw, 2rem); line-height: 1.5; }
     html body .hero .hero-sub { font-size: 0.9rem; line-height: 1.9; margin-top: 6px; }
     html body .hero .hero-grid { gap: 14px; }
@@ -1791,7 +1791,7 @@
   html body .hero .hero-sub { margin-inline: auto; text-align: center; max-width: none; }
   html body .hero .hero-right { width: 100%; max-width: 1060px; }
   @media (min-width: 761px) {
-    html body main > .hero { justify-content: flex-start; padding-top: clamp(28px, 8vh, 84px); }
+    html body main > .hero { justify-content: center; padding-top: 16px; }
     html body .hero .qb {
       display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "body" "meta" "cta";
       gap: 14px; padding: 18px 20px 20px; max-width: none; width: 100%;
