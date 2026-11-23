@@ -1804,50 +1804,206 @@
   html body .hero .hero-right { width: 100%; max-width: 1060px; }
   @media (min-width: 761px) {
     html body main > .hero { justify-content: center; padding-top: calc(61px + 16px); }
-    html body .hero .qb {
+    html body .hero .qb:is(.v1, .v5) {
       display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "body" "meta" "cta";
       gap: 14px; padding: 18px 20px 20px; max-width: none; width: 100%;
     }
-    html body .hero .qb-head { grid-area: head; margin: 0; }
-    html body .hero .qb-body { grid-area: body; flex-direction: row; align-items: stretch; }
-    html body .hero .qb .qb-panel { flex: 1 1 0; min-width: 0; padding: 12px 16px 14px; }
-    html body .hero .qb .qb-swap { flex: none; width: 10px; height: auto; display: grid; place-items: center; }
-    html body .hero .qb .qb-swap button { margin: 0 -19px; rotate: 90deg; }
-    html body .hero .qb-panel input { font-size: 1.5rem; }
-    html body .hero .qb .qb-quick, html body .hero .qb .qb-assets { margin-top: 8px; flex-wrap: nowrap; gap: 5px; }
-    html body .hero .qb .qb-quick button { padding: 4px 9px; font-size: 0.72rem; white-space: nowrap; }
-    html body .hero .qb .qb-asset { padding: 4px 10px 4px 8px; font-size: 0.74rem; white-space: nowrap; }
+    html body .hero .qb:is(.v1, .v5) .qb-head { grid-area: head; margin: 0; }
+    html body .hero .qb:is(.v1, .v5) .qb-body { grid-area: body; flex-direction: row; align-items: stretch; }
+    html body .hero .qb:is(.v1, .v5) .qb-panel { flex: 1 1 0; min-width: 0; padding: 12px 16px 14px; }
+    html body .hero .qb:is(.v1, .v5) .qb-swap { flex: none; width: 10px; height: auto; display: grid; place-items: center; }
+    html body .hero .qb:is(.v1, .v5) .qb-swap button { margin: 0 -19px; rotate: 90deg; }
+    html body .hero .qb:is(.v1, .v5) .qb-panel input { font-size: 1.5rem; }
+    html body .hero .qb:is(.v1, .v5) .qb-quick, html body .hero .qb:is(.v1, .v5) .qb-assets { margin-top: 8px; flex-wrap: nowrap; gap: 5px; }
+    html body .hero .qb:is(.v1, .v5) .qb-quick button { padding: 4px 9px; font-size: 0.72rem; white-space: nowrap; }
+    html body .hero .qb:is(.v1, .v5) .qb-asset { padding: 4px 10px 4px 8px; font-size: 0.74rem; white-space: nowrap; }
     html body .hero-bg > .fc:nth-child(8) { left: 27% !important; top: auto !important; bottom: 15%; }
-    html body .hero .qb-meta { grid-area: meta; margin: 0; justify-content: flex-start; gap: 22px; }
-    html body .hero .qb .qb-cta { grid-area: cta; margin: 0; width: 100%; }
+    html body .hero .qb:is(.v1, .v5) .qb-meta { grid-area: meta; margin: 0; justify-content: flex-start; gap: 22px; }
+    html body .hero .qb:is(.v1, .v5) .qb-cta { grid-area: cta; margin: 0; width: 100%; }
   }
   /* wide screens: the two fields are joined into ONE bar split by a hairline; the asset picker sits inside its field,
      the quick amounts on a quiet row underneath; the button stands beside the bar at the same height */
   @media (min-width: 1001px) {
-    html body .hero .qb { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "body cta" "meta meta"; column-gap: 12px; row-gap: 12px; padding: 18px 20px; }
-    html body .hero .qb-body { display: grid; grid-template-columns: minmax(0, 1fr) 0 minmax(0, 1.25fr); grid-template-rows: 66px auto; column-gap: 0; row-gap: 10px; align-items: stretch; }
-    html body .hero .qb.sell .qb-body { grid-template-columns: minmax(0, 1.25fr) 0 minmax(0, 1fr); }
-    html body .hero .qb .qb-panel { display: contents; }
-    html body .hero .qb .qb-panel > * { grid-row: 1; }
-    html body .hero .qb .p-toman > *, html body .hero .qb.sell .p-asset > * { grid-column: 1; }
-    html body .hero .qb .p-asset > *, html body .hero .qb.sell .p-toman > * { grid-column: 3; }
-    html body .hero .qb .qb-panel > .lbl { z-index: 2; align-self: start; padding: 10px 18px 0; font-size: 0.68rem; pointer-events: none; }
-    html body .hero .qb .qb-line { margin: 0; padding: 24px 18px 5px; background: var(--surface); border: 1.5px solid var(--line); align-items: flex-end; transition: border-color 0.2s; }
-    html body .hero .qb .qb-line:focus-within { border-color: var(--blue); }
+    html body .hero .qb.v1 { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "body cta" "meta meta"; column-gap: 12px; row-gap: 12px; padding: 18px 20px; }
+    html body .hero .qb.v1 .qb-body { display: grid; grid-template-columns: minmax(0, 1fr) 0 minmax(0, 1.5fr); grid-template-rows: 66px auto; column-gap: 0; row-gap: 10px; align-items: stretch; }
+    html body .hero .qb.v1.sell .qb-body { grid-template-columns: minmax(0, 1.5fr) 0 minmax(0, 1fr); }
+    html body .hero .qb.v1 .qb-panel { display: contents; }
+    html body .hero .qb.v1 .qb-panel > * { grid-row: 1; }
+    html body .hero .qb.v1 .p-toman > *, html body .hero .qb.v1.sell .p-asset > * { grid-column: 1; }
+    html body .hero .qb.v1 .p-asset > *, html body .hero .qb.v1.sell .p-toman > * { grid-column: 3; }
+    html body .hero .qb.v1 .qb-panel > .lbl { z-index: 2; align-self: start; padding: 10px 18px 0; font-size: 0.68rem; pointer-events: none; }
+    html body .hero .qb.v1 .qb-line { margin: 0; padding: 24px 18px 5px; background: var(--surface); border: 1.5px solid var(--line); align-items: flex-end; transition: border-color 0.2s; }
+    html body .hero .qb.v1 .qb-line:focus-within { border-color: var(--blue); }
     /* first field (right): rounded on the right, no left edge; second field (left): rounded on the left */
-    html body .hero .qb:not(.sell) .p-toman > .qb-line, html body .hero .qb.sell .p-asset > .qb-line { border-radius: 0 18px 18px 0; border-left-color: transparent; border-left-width: 0; }
-    html body .hero .qb:not(.sell) .p-asset > .qb-line, html body .hero .qb.sell .p-toman > .qb-line { border-radius: 18px 0 0 18px; border-right-width: 1px; }
-    html body .hero .qb .p-asset > .qb-line { padding-inline-end: 262px; }
-    html body .hero .qb-panel input { font-size: 1.3rem; line-height: 1.5; }
-    html body .hero .qb .qb-swap { grid-row: 1; grid-column: 2; width: 0; height: auto; display: grid; place-items: center; z-index: 4; }
-    html body .hero .qb .qb-swap button { margin: 0 -17px; width: 34px; height: 34px; }
-    html body .hero .qb .qb-assets { z-index: 3; align-self: center; justify-self: end; margin: 0; margin-inline-end: 14px; }
-    html body .hero .qb:not(.sell) .p-asset > .qb-assets { margin-inline-end: 14px; }
-    html body .hero .qb.sell .p-asset > .qb-assets { margin-inline-end: 26px; }
-    html body .hero .qb .qb-quick { grid-row: 2; margin: 0; align-self: center; }
-    html body .hero .qb .qb-quick button { background: none; }
-    html body .hero .qb .qb-cta { width: auto; min-width: 170px; height: 66px; align-self: start; margin: 0; padding-inline: 30px; border-radius: 18px; font-size: 1rem; }
-    html body .hero .qb-meta { font-size: 0.76rem; }
+    html body .hero .qb.v1:not(.sell) .p-toman > .qb-line, html body .hero .qb.v1.sell .p-asset > .qb-line { border-radius: 0 18px 18px 0; border-left-color: transparent; border-left-width: 0; }
+    html body .hero .qb.v1:not(.sell) .p-asset > .qb-line, html body .hero .qb.v1.sell .p-toman > .qb-line { border-radius: 18px 0 0 18px; border-right-width: 1px; }
+    html body .hero .qb.v1 .p-asset > .qb-line { padding-inline-end: 352px; }
+    html body .hero .qb.v1 .qb-panel input { font-size: 1.3rem; line-height: 1.5; }
+    html body .hero .qb.v1 .qb-swap { grid-row: 1; grid-column: 2; width: 0; height: auto; display: grid; place-items: center; z-index: 4; }
+    html body .hero .qb.v1 .qb-swap button { margin: 0 -17px; width: 34px; height: 34px; }
+    html body .hero .qb.v1 .qb-assets { z-index: 3; align-self: center; justify-self: end; margin: 0; margin-inline-end: 14px; }
+    html body .hero .qb.v1:not(.sell) .p-asset > .qb-assets { margin-inline-end: 14px; }
+    html body .hero .qb.v1.sell .p-asset > .qb-assets { margin-inline-end: 26px; }
+    html body .hero .qb.v1 .qb-quick { grid-row: 2; margin: 0; align-self: center; }
+    html body .hero .qb.v1 .qb-quick button { background: none; }
+    html body .hero .qb.v1 .qb-cta { width: auto; min-width: 170px; height: 66px; align-self: start; margin: 0; padding-inline: 30px; border-radius: 18px; font-size: 1rem; }
+    html body .hero .qb.v1 .qb-meta { font-size: 0.76rem; }
+  }
+
+  /* ============ HOME TRADE BOX: five looks to compare (switcher above the box) ============ */
+  .qbv { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 0 auto 14px; font-size: 0.74rem; color: var(--ink-500); }
+  .qbv b { --fw: 600; font-weight: var(--fw); margin-inline-end: 2px; }
+  .qbv button { height: 30px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-700); font: inherit; font-size: 0.76rem; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .qbv button:hover { border-color: var(--ink-300); }
+  .qbv button[aria-selected="true"] { background: var(--ink-900); border-color: var(--ink-900); color: var(--surface); }
+  @media (max-width: 760px) { .qbv { margin-bottom: 10px; gap: 4px; } .qbv b { display: none; } .qbv button { height: 28px; padding: 0 10px; font-size: 0.72rem; } }
+
+  /* the "more" chip and the single coin button used by styles 3-5 */
+  html body .qb .qb-asset.qb-more { border-style: dashed; color: var(--ink-700); background: transparent; }
+  html body .qb .qb-asset.qb-more svg { width: 15px; height: 15px; flex: none; }
+  .qb-pick {
+    display: none; align-items: center; gap: 8px; padding: 6px 10px 6px 12px; border-radius: 999px; cursor: pointer; white-space: nowrap;
+    border: 1px solid var(--line); background: var(--surface); color: var(--ink-900); font: inherit; font-size: 0.86rem; --fw: 650; font-weight: var(--fw);
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .qb-pick:hover { border-color: var(--blue); }
+  .qb-pick .coin { width: 22px; height: 22px; flex: none; display: grid; }
+  .qb-pick .chev { width: 14px; height: 14px; flex: none; color: var(--ink-500); }
+  html body .hero .qb:is(.v3, .v4, .v5) .qb-pick { display: inline-flex; }
+  html body .hero .qb:is(.v3, .v4, .v5) .qb-assets { display: none; }
+  .qb-w, .qb-br { display: none; }
+
+  /* style 2: a compact card, the classic stacked swap widget */
+  @media (min-width: 761px) {
+    html body .hero .qb.v2 { width: 100%; max-width: 470px; margin-inline: auto; }
+    html body .hero .qb.v2 .qb-assets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+    html body .hero .qb.v2 { padding: 16px 18px 18px; }
+    html body .hero .qb.v2 .qb-head { margin-bottom: 10px; }
+    html body .hero .qb.v2 .qb-panel { padding: 11px 14px 12px; }
+    html body .hero .qb.v2 .qb-panel input { font-size: 1.45rem; }
+    html body .hero .qb.v2 .qb-quick { margin-top: 10px; flex-wrap: nowrap; gap: 5px; }
+    html body .hero .qb.v2 .qb-quick button { padding: 4px 9px; font-size: 0.72rem; white-space: nowrap; }
+    html body .hero .qb.v2 .qb-asset { padding: 4px 10px 4px 8px; font-size: 0.74rem; }
+    html body .hero .qb.v2 .qb-meta { margin-top: 10px; }
+    html body .hero .qb.v2 .qb-cta { margin-top: 10px; }
+  }
+
+  /* style 3: a search bar: amount | coin | result joined to the button, text tabs above, nothing else in the way */
+  @media (min-width: 1001px) {
+    html body .hero .qb.v3 {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "body cta" "meta meta";
+      gap: 0; padding: 0; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    html body .hero .qb.v3::before { content: none; }
+    html body .hero .qb.v3 .qb-head { grid-area: head; margin: 0 0 12px; justify-content: flex-start; }
+    html body .hero .qb.v3 .qb-mode { background: none; border: 0; padding: 0; gap: 24px; }
+    html body .hero .qb.v3 .qb-mode button { background: none; box-shadow: none; border-radius: 0; padding: 6px 2px; color: var(--ink-500); border-bottom: 2.5px solid transparent; font-size: 1rem; }
+    html body .hero .qb.v3 .qb-mode #qbBuy[aria-selected="true"] { background: none; color: #12a86b; border-color: #12a86b; }
+    html body .hero .qb.v3 .qb-mode #qbSell[aria-selected="true"] { background: none; color: #d93a52; border-color: #d93a52; }
+    html body .hero .qb.v3 .qb-body {
+      grid-area: body; display: grid; grid-template-columns: minmax(0, 1fr) auto 0 minmax(0, 1fr); grid-template-rows: 74px; align-items: stretch;
+      background: var(--surface); border: 1px solid var(--line); border-inline-end: 0; border-radius: 0 22px 22px 0; box-shadow: var(--sh-3);
+    }
+    html body .hero .qb.v3 .qb-panel { display: contents; }
+    html body .hero .qb.v3 .qb-panel > * { grid-row: 1; }
+    html body .hero .qb.v3 .qb-quick { display: none; }
+    html body .hero .qb.v3 .p-toman > *, html body .hero .qb.v3.sell .p-asset > .lbl, html body .hero .qb.v3.sell .p-asset > .qb-line { grid-column: 1; }
+    html body .hero .qb.v3 .qb-pick { grid-column: 2; }
+    html body .hero .qb.v3 .p-asset > .lbl, html body .hero .qb.v3 .p-asset > .qb-line, html body .hero .qb.v3.sell .p-toman > * { grid-column: 4; }
+    html body .hero .qb.v3 .qb-panel > .lbl { z-index: 2; align-self: start; padding: 12px 22px 0; font-size: 0.7rem; pointer-events: none; }
+    html body .hero .qb.v3 .qb-line { margin: 0; padding: 28px 22px 6px; background: none; border: 0; align-items: flex-end; }
+    html body .hero .qb.v3 .qb-panel input { font-size: 1.35rem; line-height: 1.5; }
+    html body .hero .qb.v3 .qb-pick { align-self: center; margin: 0 4px; border-radius: 14px; padding: 10px 12px 10px 14px; }
+    html body .hero .qb.v3 .qb-pick::before, html body .hero .qb.v3 .qb-pick::after { content: ""; position: absolute; top: 18px; bottom: 18px; width: 1px; background: var(--line); }
+    html body .hero .qb.v3 .qb-pick { position: relative; }
+    html body .hero .qb.v3 .qb-pick::before { right: -5px; } html body .hero .qb.v3 .qb-pick::after { left: -5px; }
+    html body .hero .qb.v3 .qb-swap { grid-row: 1; grid-column: 3; width: 0; display: grid; place-items: center; z-index: 4; }
+    html body .hero .qb.v3 .qb-swap button { margin: 0 -17px; width: 34px; height: 34px; }
+    html body .hero .qb.v3 .qb-cta { grid-area: cta; width: auto; min-width: 180px; height: 76px; margin: 0; padding-inline: 34px; border-radius: 22px 0 0 22px; font-size: 1.02rem; }
+    html body .hero .qb.v3 .qb-meta { grid-area: meta; margin: 12px 0 0; justify-content: center; gap: 22px; font-size: 0.76rem; }
+  }
+
+  /* style 4: one sentence to fill in */
+  html body .hero .qb.v4 { width: 100%; max-width: 760px; margin-inline: auto; padding: 24px 28px 22px; text-align: center; }
+  html body .hero .qb.v4 .qb-head { justify-content: center; margin-bottom: 16px; }
+  html body .hero .qb.v4 .qb-body {
+    display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 12px 10px;
+    font-size: clamp(1.15rem, 0.9rem + 1vw, 1.55rem); --fw: 700; font-weight: var(--fw); color: var(--ink-900); line-height: 1.6;
+  }
+  html body .hero .qb.v4 .qb-panel { display: contents; }
+  html body .hero .qb.v4 .qb-swap, html body .hero .qb.v4 .qb-assets { display: none; }
+  html body .hero .qb.v4 .qb-w { display: inline; }
+  html body .hero .qb.v4 .qb-br { display: block; flex-basis: 100%; height: 0; }
+  html body .hero .qb.v4:not(.sell) .qb-w.s, html body .hero .qb.v4.sell .qb-w.b, html body .hero .qb.v4.sell .qb-w2 { display: none; }
+  html body .hero .qb.v4 .qb-w1 { order: 1; }
+  html body .hero .qb.v4:not(.sell) .p-toman > .qb-line, html body .hero .qb.v4.sell .p-asset > .qb-line { order: 2; }
+  html body .hero .qb.v4 .qb-w2 { order: 3; }
+  html body .hero .qb.v4 .qb-pick { order: 4; font-size: 0.95em; padding: 6px 12px 6px 14px; }
+  html body .hero .qb.v4 .qb-pick .coin { width: 28px; height: 28px; }
+  html body .hero .qb.v4 .qb-w3 { order: 5; }
+  html body .hero .qb.v4 .qb-br { order: 6; }
+  html body .hero .qb.v4 .qb-quick { order: 7; display: flex; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 0; font-size: 0.78rem; --fw: 500; }
+  html body .hero .qb.v4.sell .qb-quick { display: none; }
+  html body .hero .qb.v4 .qb-br.b2 { order: 8; }
+  html body .hero .qb.v4:not(.sell) .p-asset > .lbl, html body .hero .qb.v4.sell .p-toman > .lbl { order: 9; font-size: 0.86rem; --fw: 500; font-weight: var(--fw); color: var(--ink-500); }
+  html body .hero .qb.v4:not(.sell) .p-asset > .qb-line, html body .hero .qb.v4.sell .p-toman > .qb-line { order: 10; }
+  html body .hero .qb.v4:not(.sell) .p-toman > .lbl, html body .hero .qb.v4.sell .p-asset > .lbl { display: none; }
+  html body .hero .qb.v4 .qb-line { display: inline-flex; margin: 0; padding: 0 6px; border-bottom: 2px dashed color-mix(in srgb, var(--blue) 60%, var(--line)); }
+  html body .hero .qb.v4 .qb-line:focus-within { border-bottom-color: var(--blue); border-bottom-style: solid; }
+  html body .hero .qb.v4 .qb-line input { font-size: inherit; text-align: center; width: 8ch; field-sizing: content; min-width: 2ch; max-width: 11ch; color: var(--blue-700); }
+  html body .hero .qb.v4:not(.sell) .p-asset > .qb-line, html body .hero .qb.v4.sell .p-toman > .qb-line { border: 0; padding: 0; }
+  html body .hero .qb.v4:not(.sell) .p-asset > .qb-line input, html body .hero .qb.v4.sell .p-toman > .qb-line input { font-size: 1.05rem; color: var(--ink-900); }
+  html body .hero .qb.v4 .qb-cta { width: min(100%, 340px); margin: 18px auto 0; }
+  html body .hero .qb.v4 .qb-meta { justify-content: center; gap: 22px; margin-top: 12px; }
+
+  /* style 5: a dark panel, two tiles side by side, one coin button */
+  html body .hero .qb.v5 { background: linear-gradient(160deg, #0d2240, #081428 70%); border-color: #1d3a5f; color: #e6eef8; box-shadow: 0 30px 60px -30px rgba(3, 15, 35, 0.75); }
+  html body .hero .qb.v5 .qb-panel { background: #12294a; border-color: #21416a; }
+  html body .hero .qb.v5 .qb-panel:focus-within { border-color: #4aa8ff; background: #15315a; }
+  html body .hero .qb.v5 .qb-panel .lbl { color: #9fb4cc; }
+  html body .hero .qb.v5 .qb-panel input { color: #ffffff; }
+  html body .hero .qb.v5 .qb-panel input::placeholder { color: #6f86a3; }
+  html body .hero .qb.v5 .qb-meta { color: #9fb4cc; }
+  html body .hero .qb.v5 .qb-meta b { color: #ffffff; }
+  html body .hero .qb.v5 .qb-mode { background: #0a1a30; border-color: #21416a; }
+  html body .hero .qb.v5 .qb-mode button { color: #9fb4cc; }
+  html body .hero .qb.v5 .qb-mode button[aria-selected="true"] { color: #ffffff; }
+  html body .hero .qb.v5 .qb-quick button { background: #0f2440; border-color: #2a4a74; color: #cfe0f2; }
+  html body .hero .qb.v5 .qb-pick { background: #0f2440; border-color: #2a4a74; color: #ffffff; margin-top: 10px; align-self: flex-start; }
+  html body .hero .qb.v5 .qb-pick .chev { color: #9fb4cc; }
+  html body .hero .qb.v5 .qb-swap button { background: #0d2240; border-color: #2a4a74; color: #ffffff; }
+
+  /* coin picker: a dialog with search (a bottom sheet on phones) */
+  .cpk { position: fixed; inset: 0; z-index: 300; display: grid; place-items: center; padding: 16px; background: rgba(5, 15, 30, 0.45); opacity: 0; visibility: hidden; transition: opacity 0.22s, visibility 0.22s; }
+  .cpk.open { opacity: 1; visibility: visible; }
+  .cpk-box {
+    width: min(100%, 440px); max-height: min(80vh, 620px); display: flex; flex-direction: column; overflow: hidden;
+    background: var(--surface); border: 1px solid var(--line); border-radius: 24px; box-shadow: var(--sh-3);
+    transform: translateY(14px) scale(0.98); transition: transform 0.28s var(--ease);
+  }
+  .cpk.open .cpk-box { transform: none; }
+  .cpk-head { display: flex; align-items: center; justify-content: space-between; padding: 16px 18px 10px; }
+  .cpk-head b { font-size: 1rem; --fw: 700; font-weight: var(--fw); color: var(--ink-900); }
+  .cpk-x { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--bg); color: var(--ink-700); cursor: pointer; }
+  .cpk-x svg { width: 15px; height: 15px; }
+  .cpk-search { margin: 0 18px 8px; display: flex; align-items: center; gap: 8px; height: 46px; padding: 0 14px; border-radius: 14px; background: var(--bg); border: 1.5px solid var(--line); color: var(--ink-500); }
+  .cpk-search:focus-within { border-color: var(--blue); }
+  .cpk-search svg { width: 18px; height: 18px; flex: none; }
+  .cpk-search input { flex: 1; min-width: 0; border: 0; background: none; outline: none; font: inherit; font-size: 0.92rem; color: var(--ink-900); }
+  .cpk-list { overflow-y: auto; overscroll-behavior: contain; padding: 4px 10px 14px; }
+  .cpk-item { width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px; border: 0; border-radius: 14px; background: none; cursor: pointer; font: inherit; text-align: start; color: inherit; }
+  .cpk-item:hover, .cpk-item:focus-visible { background: var(--bg); outline: none; }
+  .cpk-item[aria-selected="true"] { background: var(--blue-100); }
+  .cpk-item .coin { width: 36px; height: 36px; display: grid; }
+  .cpk-item b { display: block; font-size: 0.92rem; --fw: 650; font-weight: var(--fw); color: var(--ink-900); line-height: 1.6; }
+  .cpk-item small { display: block; font-size: 0.72rem; color: var(--ink-500); direction: ltr; text-align: right; }
+  .cpk-px { text-align: end; font-size: 0.82rem; color: var(--ink-800); white-space: nowrap; }
+  .cpk-px span { display: block; font-size: 0.72rem; }
+  .cpk-px .up { color: var(--up); } .cpk-px .down { color: var(--down); }
+  .cpk-empty { padding: 30px 10px; text-align: center; color: var(--ink-500); font-size: 0.88rem; }
+  @media (max-width: 760px) {
+    .cpk { place-items: end center; padding: 0; }
+    .cpk-box { width: 100%; max-height: 80vh; border-radius: 24px 24px 0 0; transform: translateY(40px); }
   }
 
   /* dropdown rows: a bar on the leading (right) edge on hover, not an underline */
@@ -2218,7 +2374,8 @@
       <div class="hero-right rv">
         <div class="qb-coins" aria-hidden="true">
         </div>
-        <div class="qb" id="qb">
+        <div class="qbv" role="tablist" aria-label="حالت نمایش باکس خرید و فروش"><b>حالت باکس:</b><button type="button" role="tab" data-v="v1" aria-selected="true">نوار</button><button type="button" role="tab" data-v="v2" aria-selected="false">کارت</button><button type="button" role="tab" data-v="v3" aria-selected="false">جستجو</button><button type="button" role="tab" data-v="v4" aria-selected="false">جمله‌ای</button><button type="button" role="tab" data-v="v5" aria-selected="false">تیره</button></div>
+        <div class="qb v1" id="qb">
           <div class="qb-head">
             <div class="qb-mode" role="tablist" aria-label="نوع معامله">
               <button type="button" role="tab" id="qbBuy" aria-selected="true">خرید</button>
@@ -2227,6 +2384,7 @@
           </div>
 
           <div class="qb-body">
+            <span class="qb-w qb-w1 b" aria-hidden="true">می‌خواهم با</span><span class="qb-w qb-w1 s" aria-hidden="true">می‌خواهم</span><span class="qb-w qb-w2" aria-hidden="true">تومان</span><span class="qb-w qb-w3 b" aria-hidden="true">بخرم</span><span class="qb-w qb-w3 s" aria-hidden="true">بفروشم</span><span class="qb-br"></span><span class="qb-br b2"></span>
             <div class="qb-panel p-toman">
               <label class="lbl" for="qbAmount" id="qbLblToman">پرداخت می‌کنید (تومانء)</label>
               <div class="qb-line">
@@ -2244,6 +2402,7 @@
               <div class="qb-line">
                 <input id="qbQty" class="num" inputmode="decimal" autocomplete="off" size="1" placeholder="۰" readonly />
               </div>
+              <button type="button" class="qb-pick" id="qbPick" aria-haspopup="dialog"><span class="coin" id="qbPickIcon"></span><span id="qbPickName">تتر</span><svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m6 9 6 6 6-6"/></svg></button>
               <div class="qb-assets" role="tablist" aria-label="انتخاب دارایی" id="qbAssets"></div>
             </div>
           </div>
@@ -2418,6 +2577,102 @@
       "ticker": "ETH",
       "price": 281460000,
       "change": -1.1
+    },
+    {
+      "key": "USDC",
+      "name": "یواس‌دی‌کوین",
+      "ticker": "USDC",
+      "price": 1057100,
+      "change": 0.0,
+      "sample": true
+    },
+    {
+      "key": "BNB",
+      "name": "بی‌ان‌بی",
+      "ticker": "BNB",
+      "price": 52650000,
+      "change": 1.3,
+      "sample": true
+    },
+    {
+      "key": "SOL",
+      "name": "سولانا",
+      "ticker": "SOL",
+      "price": 14580000,
+      "change": 3.1,
+      "sample": true
+    },
+    {
+      "key": "XRP",
+      "name": "ریپل",
+      "ticker": "XRP",
+      "price": 186300,
+      "change": -0.8,
+      "sample": true
+    },
+    {
+      "key": "TON",
+      "name": "تون‌کوین",
+      "ticker": "TON",
+      "price": 445500,
+      "change": 0.6,
+      "sample": true
+    },
+    {
+      "key": "TRX",
+      "name": "ترون",
+      "ticker": "TRX",
+      "price": 20250,
+      "change": 0.2,
+      "sample": true
+    },
+    {
+      "key": "DOGE",
+      "name": "دوج‌کوین",
+      "ticker": "DOGE",
+      "price": 30780,
+      "change": -2.4,
+      "sample": true
+    },
+    {
+      "key": "ADA",
+      "name": "کاردانو",
+      "ticker": "ADA",
+      "price": 76950,
+      "change": -1.2,
+      "sample": true
+    },
+    {
+      "key": "LTC",
+      "name": "لایت‌کوین",
+      "ticker": "LTC",
+      "price": 8505000,
+      "change": 0.9,
+      "sample": true
+    },
+    {
+      "key": "DOT",
+      "name": "پولکادات",
+      "ticker": "DOT",
+      "price": 583200,
+      "change": -0.5,
+      "sample": true
+    },
+    {
+      "key": "AVAX",
+      "name": "آوالانچ",
+      "ticker": "AVAX",
+      "price": 3078000,
+      "change": 2.2,
+      "sample": true
+    },
+    {
+      "key": "LINK",
+      "name": "چین‌لینک",
+      "ticker": "LINK",
+      "price": 1782000,
+      "change": 1.7,
+      "sample": true
     }
   ],
   "ticker": [
@@ -2542,6 +2797,18 @@
 
   /* official coin marks (bitcoin.org / ethereum.org / tether.to brand shapes) */
   var COIN_SVG = {
+    USDC: '<img class="cimg" src="assets/coins/usdc.webp" alt="یواس‌دی‌کوین" width="64" height="64" decoding="async">',
+    BNB: '<img class="cimg" src="assets/coins/bnb.webp" alt="بی‌ان‌بی" width="64" height="64" decoding="async">',
+    SOL: '<img class="cimg" src="assets/coins/sol.webp" alt="سولانا" width="64" height="64" decoding="async">',
+    XRP: '<img class="cimg" src="assets/coins/xrp.webp" alt="ریپل" width="64" height="64" decoding="async">',
+    TON: '<img class="cimg" src="assets/coins/ton.webp" alt="تون‌کوین" width="64" height="64" decoding="async">',
+    TRX: '<img class="cimg" src="assets/coins/trx.webp" alt="ترون" width="64" height="64" decoding="async">',
+    DOGE: '<img class="cimg" src="assets/coins/doge.webp" alt="دوج‌کوین" width="64" height="64" decoding="async">',
+    ADA: '<img class="cimg" src="assets/coins/ada.webp" alt="کاردانو" width="64" height="64" decoding="async">',
+    LTC: '<img class="cimg" src="assets/coins/ltc.webp" alt="لایت‌کوین" width="64" height="64" decoding="async">',
+    DOT: '<img class="cimg" src="assets/coins/dot.webp" alt="پولکادات" width="64" height="64" decoding="async">',
+    AVAX: '<img class="cimg" src="assets/coins/avax.webp" alt="آوالانچ" width="64" height="64" decoding="async">',
+    LINK: '<img class="cimg" src="assets/coins/link.webp" alt="چین‌لینک" width="64" height="64" decoding="async">',
     BTC: '<img class="cimg" src="assets/coins/btc.webp" alt="بیت‌کوین" width="64" height="64" decoding="async">',
     USDT: '<img class="cimg" src="assets/coins/usdt.webp" alt="تتر" width="64" height="64" decoding="async">',
     ETH: '<img class="cimg" src="assets/coins/eth.webp" alt="اتریوم" width="64" height="64" decoding="async">',
@@ -2725,17 +2992,34 @@
     var elCta = document.getElementById("qbCta");
     var elQuick = document.getElementById("qbQuick");
   
-    DATA.assets.forEach(function (a) {
-      var b = document.createElement("button");
-      b.className = "qb-asset";
-      b.type = "button";
-      b.setAttribute("role", "tab");
-      b.setAttribute("aria-selected", String(a.key === current));
-      b.dataset.key = a.key;
-      b.innerHTML = coin(a.key) + a.name;
-      b.addEventListener("click", function () { select(a.key); });
-      elAssets.appendChild(b);
-    });
+    // three coins as chips, then "more" which opens the searchable list; a coin chosen from the list takes the first chip
+    var TOP = ["USDT", "BTC", "ETH"];
+    var MORE_ICON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="6" cy="12" r="1.2"/><circle cx="12" cy="12" r="1.2"/><circle cx="18" cy="12" r="1.2"/></svg>';
+    function renderChips() {
+      var keys = TOP.indexOf(current) >= 0 ? TOP.slice() : [current].concat(TOP.slice(0, 2));
+      elAssets.innerHTML = "";
+      keys.forEach(function (k) {
+        var a = byKey[k], b = document.createElement("button");
+        b.className = "qb-asset"; b.type = "button";
+        b.setAttribute("role", "tab");
+        b.setAttribute("aria-selected", String(k === current));
+        b.dataset.key = k;
+        b.innerHTML = coin(k) + a.name;
+        b.addEventListener("click", function () { select(k); });
+        elAssets.appendChild(b);
+      });
+      var more = document.createElement("button");
+      more.className = "qb-asset qb-more"; more.type = "button";
+      more.setAttribute("aria-haspopup", "dialog");
+      more.innerHTML = MORE_ICON + "بیشتر";
+      more.addEventListener("click", function () { openPicker(more); });
+      elAssets.appendChild(more);
+      var pi = document.getElementById("qbPickIcon"), pn = document.getElementById("qbPickName");
+      if (pi) pi.innerHTML = COIN_SVG[current] || "";
+      if (pn) pn.textContent = byKey[current].name;
+    }
+    var openPicker = function () {};
+    renderChips();
   
     [1000000, 5000000, 10000000, 50000000].forEach(function (v) {
       var b = document.createElement("button");
@@ -2747,9 +3031,7 @@
   
     select = function (key) {
       current = key;
-      elAssets.querySelectorAll(".qb-asset").forEach(function (b) {
-        b.setAttribute("aria-selected", String(b.dataset.key === key));
-      });
+      renderChips();
       recalc();
       if (window.EB && typeof window.EB.onSelect === "function") window.EB.onSelect(key);
     }
@@ -2797,6 +3079,70 @@
     }
     elBuy.addEventListener("click", function () { setMode("buy"); });
     elSell.addEventListener("click", function () { setMode("sell"); });
+
+    /* ---------- coin picker: every asset, searchable by Persian name or ticker ---------- */
+    (function () {
+      var opener = null;
+      var pk = document.createElement("div");
+      pk.className = "cpk";
+      pk.innerHTML = '<div class="cpk-box" role="dialog" aria-modal="true" aria-labelledby="cpkTitle">' +
+        '<div class="cpk-head"><b id="cpkTitle">انتخاب دارایی</b><button class="cpk-x" type="button" aria-label="بستن"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button></div>' +
+        '<label class="cpk-search"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="m20 20-4.2-4.2"/></svg>' +
+        '<input type="search" placeholder="جستجوی نام یا نماد، مثلاً سولانا یا SOL" aria-label="جستجوی دارایی" autocomplete="off"></label>' +
+        '<div class="cpk-list" role="listbox" aria-labelledby="cpkTitle"></div></div>';
+      document.body.appendChild(pk);
+      var input = pk.querySelector("input"), list = pk.querySelector(".cpk-list");
+      function norm(t) { return toEn(String(t)).toLowerCase().replace(/[‌\s]/g, "").replace(/ي/g, "ی").replace(/ك/g, "ک"); }
+      function fill(q) {
+        var n = norm(q);
+        var rows = DATA.assets.filter(function (a) { return !n || norm(a.name).indexOf(n) >= 0 || norm(a.ticker).indexOf(n) >= 0; });
+        list.innerHTML = rows.length ? rows.map(function (a) {
+          var up = (a.change || 0) >= 0;
+          return '<button class="cpk-item" type="button" role="option" data-key="' + a.key + '" aria-selected="' + (a.key === current) + '">' +
+            coin(a.key) + '<span><b>' + a.name + '</b><small>' + a.ticker + '</small></span>' +
+            '<span class="cpk-px"><span class="num">' + faNum(a.price) + ' تومانء</span><span class="num ' + (up ? "up" : "down") + '">⁦' + toFa((up ? "+" : "") + a.change) + '٪⁩</span></span></button>';
+        }).join("") : '<p class="cpk-empty">دارایی‌ای با این نام یا نماد پیدا نشد.</p>';
+      }
+      function close() {
+        pk.classList.remove("open");
+        if (opener) opener.focus();
+      }
+      openPicker = function (from) {
+        opener = from || null;
+        input.value = ""; fill("");
+        pk.classList.add("open");
+        if (window.matchMedia && window.matchMedia("(pointer: fine)").matches) setTimeout(function () { input.focus(); }, 60);
+      };
+      input.addEventListener("input", function () { fill(input.value); });
+      input.addEventListener("keydown", function (e) {
+        if (e.key === "Enter") { var first = list.querySelector(".cpk-item"); if (first) first.click(); }
+      });
+      list.addEventListener("click", function (e) {
+        var it = e.target.closest(".cpk-item"); if (!it) return;
+        select(it.dataset.key); close();
+      });
+      pk.addEventListener("click", function (e) { if (e.target === pk || e.target.closest(".cpk-x")) close(); });
+      document.addEventListener("keydown", function (e) { if (e.key === "Escape" && pk.classList.contains("open")) close(); });
+      var pickBtn = document.getElementById("qbPick");
+      if (pickBtn) pickBtn.addEventListener("click", function () { openPicker(pickBtn); });
+    })();
+
+    /* ---------- the five looks of the box (for comparing; the choice is remembered) ---------- */
+    (function () {
+      var bar = document.querySelector(".qbv"); if (!bar) return;
+      var looks = ["v1", "v2", "v3", "v4", "v5"];
+      function setLook(v) {
+        if (looks.indexOf(v) < 0) v = "v1";
+        looks.forEach(function (c) { elBox.classList.remove(c); });
+        elBox.classList.add(v);
+        bar.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.v === v)); });
+        try { localStorage.setItem("ebQbLook", v); } catch (e) {}
+      }
+      bar.addEventListener("click", function (e) { var b = e.target.closest("button[data-v]"); if (b) setLook(b.dataset.v); });
+      var q = (location.search.match(/[?&]box=(\d)/) || [])[1], saved = null;
+      try { saved = localStorage.getItem("ebQbLook"); } catch (e) {}
+      setLook(q ? "v" + q : (saved || "v1"));
+    })();
     var swapTurns = 0;
     document.getElementById("qbSwap").addEventListener("click", function () {
       swapTurns += 1; this.style.setProperty("--rot", swapTurns * 180 + "deg");
