@@ -14,7 +14,7 @@ Then open http://localhost:8417/index.html
 
 | Path | What it is |
 |---|---|
-| `index.html` | Home page (hero only, one screen, five trade-box looks to compare via `?box=1`…`?box=5`) |
+| `index.html` | Home page (hero only, one screen; the trade box is a stacked card at 1000px and below, a search bar above) |
 | `landing.html` | Same page as `index.html` without the outer `<!doctype>` wrapper line; other pages link here |
 | `coin-*.html`, `coin.html` | One page per asset (`coin.html` is a copy of `coin-btc.html`) |
 | `about.html`, `faq.html`, `contact.html`, `terms.html`, `status.html` | Content pages |

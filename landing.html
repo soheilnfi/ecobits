@@ -1752,8 +1752,8 @@
   .qb .qb-swap svg, .trade .t-swap button svg { width: 17px; height: 17px; }
 
   /* room around the swap button, so it does not sit on the quick amounts */
-  .qb:not(.sell) .qb-panel.p-toman, .qb.sell .qb-panel.p-asset { padding-bottom: 28px; }
-  .qb:not(.sell) .qb-panel.p-asset, .qb.sell .qb-panel.p-toman { padding-top: 24px; }
+  .qb:not(.qty-first) .qb-panel.p-toman, .qb.qty-first .qb-panel.p-asset { padding-bottom: 28px; }
+  .qb:not(.qty-first) .qb-panel.p-asset, .qb.qty-first .qb-panel.p-toman { padding-top: 24px; }
 
   /* on the blue menu the whole logo is white, mark included */
   .side-brand .lg path { fill: #fff; }
@@ -1776,8 +1776,8 @@
     html body .hero .hero-grid { gap: 14px; }
     html body .qb { padding: 14px; }
     html body .qb-panel { padding: 11px 13px 12px; }
-    html body .qb:not(.sell) .qb-panel.p-toman, html body .qb.sell .qb-panel.p-asset { padding-bottom: 24px; }
-    html body .qb:not(.sell) .qb-panel.p-asset, html body .qb.sell .qb-panel.p-toman { padding-top: 20px; }
+    html body .qb:not(.qty-first) .qb-panel.p-toman, html body .qb.qty-first .qb-panel.p-asset { padding-bottom: 24px; }
+    html body .qb:not(.qty-first) .qb-panel.p-asset, html body .qb.qty-first .qb-panel.p-toman { padding-top: 20px; }
     html body .qb-panel input { font-size: 1.35rem; }
     html body .qb .qb-quick, html body .qb .qb-assets { margin-top: 8px; flex-wrap: nowrap; gap: 5px; }
     html body .qb .qb-quick button { padding: 5px 9px; font-size: 0.72rem; white-space: nowrap; }
@@ -1825,24 +1825,24 @@
   @media (min-width: 1001px) {
     html body .hero .qb.v1 { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "body cta" "meta meta"; column-gap: 12px; row-gap: 12px; padding: 18px 20px; }
     html body .hero .qb.v1 .qb-body { display: grid; grid-template-columns: minmax(0, 1fr) 0 minmax(0, 1.5fr); grid-template-rows: 66px auto; column-gap: 0; row-gap: 10px; align-items: stretch; }
-    html body .hero .qb.v1.sell .qb-body { grid-template-columns: minmax(0, 1.5fr) 0 minmax(0, 1fr); }
+    html body .hero .qb.v1.qty-first .qb-body { grid-template-columns: minmax(0, 1.5fr) 0 minmax(0, 1fr); }
     html body .hero .qb.v1 .qb-panel { display: contents; }
     html body .hero .qb.v1 .qb-panel > * { grid-row: 1; }
-    html body .hero .qb.v1 .p-toman > *, html body .hero .qb.v1.sell .p-asset > * { grid-column: 1; }
-    html body .hero .qb.v1 .p-asset > *, html body .hero .qb.v1.sell .p-toman > * { grid-column: 3; }
+    html body .hero .qb.v1 .p-toman > *, html body .hero .qb.v1.qty-first .p-asset > * { grid-column: 1; }
+    html body .hero .qb.v1 .p-asset > *, html body .hero .qb.v1.qty-first .p-toman > * { grid-column: 3; }
     html body .hero .qb.v1 .qb-panel > .lbl { z-index: 2; align-self: start; padding: 10px 18px 0; font-size: 0.68rem; pointer-events: none; }
     html body .hero .qb.v1 .qb-line { margin: 0; padding: 24px 18px 5px; background: var(--surface); border: 1.5px solid var(--line); align-items: flex-end; transition: border-color 0.2s; }
     html body .hero .qb.v1 .qb-line:focus-within { border-color: var(--blue); }
     /* first field (right): rounded on the right, no left edge; second field (left): rounded on the left */
-    html body .hero .qb.v1:not(.sell) .p-toman > .qb-line, html body .hero .qb.v1.sell .p-asset > .qb-line { border-radius: 0 18px 18px 0; border-left-color: transparent; border-left-width: 0; }
-    html body .hero .qb.v1:not(.sell) .p-asset > .qb-line, html body .hero .qb.v1.sell .p-toman > .qb-line { border-radius: 18px 0 0 18px; border-right-width: 1px; }
+    html body .hero .qb.v1:not(.qty-first) .p-toman > .qb-line, html body .hero .qb.v1.qty-first .p-asset > .qb-line { border-radius: 0 18px 18px 0; border-left-color: transparent; border-left-width: 0; }
+    html body .hero .qb.v1:not(.qty-first) .p-asset > .qb-line, html body .hero .qb.v1.qty-first .p-toman > .qb-line { border-radius: 18px 0 0 18px; border-right-width: 1px; }
     html body .hero .qb.v1 .p-asset > .qb-line { padding-inline-end: 352px; }
     html body .hero .qb.v1 .qb-panel input { font-size: 1.3rem; line-height: 1.5; }
     html body .hero .qb.v1 .qb-swap { grid-row: 1; grid-column: 2; width: 0; height: auto; display: grid; place-items: center; z-index: 4; }
     html body .hero .qb.v1 .qb-swap button { margin: 0 -17px; width: 34px; height: 34px; }
     html body .hero .qb.v1 .qb-assets { z-index: 3; align-self: center; justify-self: end; margin: 0; margin-inline-end: 14px; }
-    html body .hero .qb.v1:not(.sell) .p-asset > .qb-assets { margin-inline-end: 14px; }
-    html body .hero .qb.v1.sell .p-asset > .qb-assets { margin-inline-end: 26px; }
+    html body .hero .qb.v1:not(.qty-first) .p-asset > .qb-assets { margin-inline-end: 14px; }
+    html body .hero .qb.v1.qty-first .p-asset > .qb-assets { margin-inline-end: 26px; }
     html body .hero .qb.v1 .qb-quick { grid-row: 2; margin: 0; align-self: center; }
     html body .hero .qb.v1 .qb-quick button { background: none; }
     html body .hero .qb.v1 .qb-cta { width: auto; min-width: 170px; height: 66px; align-self: start; margin: 0; padding-inline: 30px; border-radius: 18px; font-size: 1rem; }
@@ -1850,12 +1850,7 @@
   }
 
   /* ============ HOME TRADE BOX: five looks to compare (switcher above the box) ============ */
-  .qbv { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 6px; margin: 0 auto 14px; font-size: 0.74rem; color: var(--ink-500); }
-  .qbv b { --fw: 600; font-weight: var(--fw); margin-inline-end: 2px; }
-  .qbv button { height: 30px; padding: 0 13px; border-radius: 999px; border: 1px solid var(--line); background: var(--surface); color: var(--ink-700); font: inherit; font-size: 0.76rem; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
-  .qbv button:hover { border-color: var(--ink-300); }
-  .qbv button[aria-selected="true"] { background: var(--ink-900); border-color: var(--ink-900); color: var(--surface); }
-  @media (max-width: 760px) { .qbv { margin-bottom: 10px; gap: 4px; } .qbv b { display: none; } .qbv button { height: 28px; padding: 0 10px; font-size: 0.72rem; } }
+            @media (max-width: 760px) {    }
 
   /* the "more" chip and the single coin button used by styles 3-5 */
   html body .qb .qb-asset.qb-more { border-style: dashed; color: var(--ink-700); background: transparent; }
@@ -1906,9 +1901,9 @@
     html body .hero .qb.v3 .qb-panel { display: contents; }
     html body .hero .qb.v3 .qb-panel > * { grid-row: 1; }
     html body .hero .qb.v3 .qb-quick { display: none; }
-    html body .hero .qb.v3 .p-toman > *, html body .hero .qb.v3.sell .p-asset > .lbl, html body .hero .qb.v3.sell .p-asset > .qb-line { grid-column: 1; }
+    html body .hero .qb.v3 .p-toman > *, html body .hero .qb.v3.qty-first .p-asset > .lbl, html body .hero .qb.v3.qty-first .p-asset > .qb-line { grid-column: 1; }
     html body .hero .qb.v3 .qb-pick { grid-column: 2; }
-    html body .hero .qb.v3 .p-asset > .lbl, html body .hero .qb.v3 .p-asset > .qb-line, html body .hero .qb.v3.sell .p-toman > * { grid-column: 4; }
+    html body .hero .qb.v3 .p-asset > .lbl, html body .hero .qb.v3 .p-asset > .qb-line, html body .hero .qb.v3.qty-first .p-toman > * { grid-column: 4; }
     html body .hero .qb.v3 .qb-panel > .lbl { z-index: 2; align-self: start; padding: 12px 22px 0; font-size: 0.7rem; pointer-events: none; }
     html body .hero .qb.v3 .qb-line { margin: 0; padding: 28px 22px 6px; background: none; border: 0; align-items: flex-end; }
     html body .hero .qb.v3 .qb-panel input { font-size: 1.35rem; line-height: 1.5; }
@@ -1920,6 +1915,104 @@
     html body .hero .qb.v3 .qb-swap button { margin: 0 -17px; width: 34px; height: 34px; rotate: 90deg; }
     html body .hero .qb.v3 .qb-cta { grid-area: cta; width: auto; min-width: 180px; height: 76px; margin: 0; padding-inline: 34px; border-radius: 22px 0 0 22px; font-size: 1.02rem; }
     html body .hero .qb.v3 .qb-meta { grid-area: meta; margin: 12px 0 0; justify-content: center; gap: 22px; font-size: 0.76rem; }
+  }
+
+  /* buy / sell tab icons: only the desktop folder tabs show them */
+  html body .hero .qb-mode .qb-ico { display: none; }
+
+  /* style 3 tabs: folder tabs joined to the top of the bar; the active one is white and runs into it */
+  @media (min-width: 1001px) {
+    html body .hero .qb.v3 .qb-head { position: relative; z-index: 5; margin: 0 0 -1px; display: block; }
+    html body .hero .qb.v3 .qb-mode {
+      display: flex; justify-content: flex-start; width: fit-content; gap: 0; padding: 0; overflow: hidden;
+      background: var(--bg-2); border: 1px solid var(--line); border-bottom: 0; border-radius: 18px 18px 0 0;
+      box-shadow: 0 -14px 34px -22px rgba(7, 42, 74, 0.28);
+    }
+    html body .hero .qb.v3 .qb-mode button {
+      display: flex; align-items: center; justify-content: center; gap: 8px; height: 50px; flex: 0 0 auto; min-width: 150px; padding: 0 28px;
+      border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--ink-700); font-size: 0.95rem; --fw: 560;
+      transition: background 0.22s, color 0.22s;
+    }
+    html body .hero .qb.v3 .qb-mode button:hover { color: var(--ink-900); }
+    html body .hero .qb.v3 .qb-mode button { position: relative; }
+    html body .hero .qb.v3 .qb-mode button[aria-selected="true"]::after { content: ""; position: absolute; inset: auto 0 0; height: 2px; background: currentColor; }
+    html body .hero .qb.v3 .qb-mode .qb-ico { display: block; width: 20px; height: 20px; flex: none; }
+    html body .hero .qb.v3 .qb-mode button[aria-selected="true"] { background: var(--surface); --fw: 650; }
+    html body .hero .qb.v3 .qb-mode #qbBuy[aria-selected="true"] { background: var(--surface); color: #12a86b; }
+    html body .hero .qb.v3 .qb-mode #qbSell[aria-selected="true"] { background: var(--surface); color: #d93a52; }
+    html body .hero .qb.v3 { grid-template-areas: "head ." "body cta" "meta meta"; column-gap: 14px; }
+    html body .hero .qb.v3 .qb-body { border-inline-end: 1px solid var(--line); border-radius: 22px 0 22px 22px; }
+    html body .hero .qb.v3 .qb-cta { align-self: center; height: 60px; min-width: 170px; border-radius: 18px; }
+
+    /* the button sits inside the white bar as a third tile, the same height as the two fields */
+    html body .hero .qb.v3 { column-gap: 0; }
+    html body .hero .qb.v3::after {
+      content: ""; grid-row: 2; grid-column: 1 / -1; z-index: 0;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 22px 0 22px 22px; box-shadow: var(--sh-3);
+    }
+    html body .hero .qb.v3 .qb-body { position: relative; z-index: 1; background: none; border: 0; box-shadow: none; }
+    html body .hero .qb.v3 .qb-cta {
+      position: relative; z-index: 1; align-self: stretch; height: auto; min-width: 190px;
+      margin-block: 12px; margin-inline: 0 12px; border-radius: 16px;
+    }
+
+    /* bottom row inside the bar: price and fee on the right, the buy / sell button on the left */
+    html body .hero .qb.v3.v3 { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "head head" "body body" "meta cta"; }
+    html body .hero .qb.v3.v3::after { grid-row: 2 / 4; }
+    html body .hero .qb.v3.v3 .qb-body { padding-bottom: 4px; }
+    html body .hero .qb.v3.v3 .qb-meta {
+      grid-area: meta; position: relative; z-index: 1; align-self: center; justify-content: flex-start;
+      margin: 0; padding: 0 26px 12px; gap: 22px; font-size: 0.8rem;
+    }
+    html body .hero .qb.v3.v3 .qb-cta {
+      grid-area: cta; align-self: center; height: 52px; min-width: 200px; padding-inline: 34px;
+      margin-block: 8px 12px; margin-inline: 0 12px; border-radius: 14px;
+    }
+
+    /* the two fields sit in their own soft boxes, like the phone card */
+    html body .hero .qb.v3 .qb-body { grid-template-columns: minmax(0, 1fr) 0 minmax(0, 1fr); grid-template-rows: auto; column-gap: 12px; padding: 12px; }
+    html body .hero .qb.v3 .qb-w, html body .hero .qb.v3 .qb-br { display: none; }
+    html body .hero .qb.v3 .qb-panel:is(.p-toman, .p-asset) {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto auto; align-items: center; column-gap: 12px;
+      grid-row: 1; padding: 14px 20px 13px; background: var(--bg); border: 1px solid var(--line-soft); border-radius: 16px;
+    }
+    html body .hero .qb.v3 .qb-panel:focus-within { background: var(--surface); border-color: var(--blue); }
+    html body .hero .qb.v3:not(.qty-first) .p-toman, html body .hero .qb.v3.qty-first .p-asset { grid-column: 1; }
+    html body .hero .qb.v3:not(.qty-first) .p-asset, html body .hero .qb.v3.qty-first .p-toman { grid-column: 3; }
+    html body .hero .qb.v3 .qb-panel > * { grid-row: auto; }
+    html body .hero .qb.v3 .p-toman > .lbl, html body .hero .qb.v3 .p-asset > .lbl,
+    html body .hero .qb.v3.qty-first .p-asset > .lbl, html body .hero .qb.v3.qty-first .p-toman > .lbl { grid-column: 1; grid-row: 1; padding: 0; z-index: auto; }
+    html body .hero .qb.v3 .p-toman > .qb-line, html body .hero .qb.v3 .p-asset > .qb-line,
+    html body .hero .qb.v3.qty-first .p-asset > .qb-line, html body .hero .qb.v3.qty-first .p-toman > .qb-line { grid-column: 1; grid-row: 2; margin-top: 6px; padding: 0; }
+    html body .hero .qb.v3 .p-toman > .qb-quick { display: none; }
+    html body .hero .qb.v3 .qb-panel input { font-size: 1.5rem; line-height: 1.4; }
+    html body .hero .qb.v3 .qb-pick { grid-column: 2; grid-row: 2; margin: 8px 0 0; align-self: stretch; border-radius: 12px; background: var(--surface); }
+    html body .hero .qb.v3 .qb-pick::before, html body .hero .qb.v3 .qb-pick::after { content: none; }
+    html body .hero .qb.v3 .qb-swap { grid-column: 2; grid-row: 1; }
+    html body .hero .qb.v3 .qb-swap button { margin: 0 -19px; width: 38px; height: 38px; }
+
+    /* the number sits in its own white field under the title, so it reads as a place to type */
+    html body .hero .qb.v3 .p-toman > .qb-line, html body .hero .qb.v3 .p-asset > .qb-line,
+    html body .hero .qb.v3.qty-first .p-asset > .qb-line, html body .hero .qb.v3.qty-first .p-toman > .qb-line {
+      margin-top: 8px; padding: 6px 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 12px;
+      cursor: text; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    html body .hero .qb.v3 .qb-panel input { font-size: 1.4rem; }
+    html body .hero .qb.v3 .qb-panel .lbl { font-size: 0.78rem; --fw: 650; color: var(--ink-700); }
+    html body .hero .qb.v3 .qb-panel:focus-within .qb-line { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-100); }
+    /* the side that is worked out for you is plain text, not a field */
+    html body .hero .qb.v3 .qb-panel:has(input[readonly]) .qb-line { background: none; border-color: transparent; padding-inline: 2px; cursor: default; }
+
+    /* hover: the box lifts a little and takes a shadow */
+    html body .hero .qb.v3 .qb-panel:is(.p-toman, .p-asset) {
+      position: relative; transition: transform 0.22s var(--ease), box-shadow 0.22s, background 0.22s, border-color 0.22s;
+    }
+    html body .hero .qb.v3 .qb-panel:is(.p-toman, .p-asset):hover {
+      z-index: 3; transform: scale(1.025); background: var(--surface); border-color: var(--line);
+      box-shadow: 0 14px 32px -12px rgba(7, 42, 74, 0.28);
+    }
+    html body .hero .qb.v3 .qb-panel:focus-within { box-shadow: 0 14px 32px -14px rgba(7, 42, 74, 0.22); }
+    @media (prefers-reduced-motion: reduce) { html body .hero .qb.v3 .qb-panel:is(.p-toman, .p-asset):hover { transform: none; } }
   }
 
   /* style 4: one sentence to fill in */
@@ -1985,10 +2078,10 @@
   .cpk-head b { font-size: 1rem; --fw: 700; font-weight: var(--fw); color: var(--ink-900); }
   .cpk-x { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--line); background: var(--bg); color: var(--ink-700); cursor: pointer; }
   .cpk-x svg { width: 15px; height: 15px; }
-  .cpk-search { margin: 0 18px 8px; display: flex; align-items: center; gap: 8px; height: 46px; padding: 0 14px; border-radius: 14px; background: var(--bg); border: 1.5px solid var(--line); color: var(--ink-500); }
+  .cpk-search { flex: none; box-sizing: border-box; margin: 0 18px 8px; display: flex; align-items: center; gap: 10px; height: 56px; padding: 0 16px; border-radius: 16px; background: var(--bg); border: 1.5px solid var(--line); color: var(--ink-500); }
   .cpk-search:focus-within { border-color: var(--blue); }
-  .cpk-search svg { width: 18px; height: 18px; flex: none; }
-  .cpk-search input { flex: 1; min-width: 0; border: 0; background: none; outline: none; font: inherit; font-size: 0.92rem; color: var(--ink-900); }
+  .cpk-search svg { width: 20px; height: 20px; flex: none; }
+  .cpk-search input { flex: 1; min-width: 0; border: 0; background: none; outline: none; font: inherit; font-size: 0.98rem; color: var(--ink-900); }
   .cpk-list { overflow-y: auto; overscroll-behavior: contain; padding: 4px 10px 14px; }
   .cpk-item { width: 100%; display: grid; grid-template-columns: 36px minmax(0, 1fr) auto; align-items: center; gap: 12px; padding: 10px; border: 0; border-radius: 14px; background: none; cursor: pointer; font: inherit; text-align: start; color: inherit; }
   .cpk-item:hover, .cpk-item:focus-visible { background: var(--bg); outline: none; }
@@ -2092,8 +2185,8 @@
   }
   .qb-panel:focus-within { border-color: var(--blue); background: var(--surface); }
   .qb-panel.p-asset { order: 3; }
-  .qb.sell .qb-panel.p-asset { order: 1; }
-  .qb.sell .qb-panel.p-toman { order: 3; }
+  .qb.qty-first .qb-panel.p-asset { order: 1; }
+  .qb.qty-first .qb-panel.p-toman { order: 3; }
   .qb-panel .lbl { display: block; font-size: 0.74rem; --fw: 600; font-weight: var(--fw); color: var(--ink-500); }
   .qb-line { display: flex; flex-direction: row-reverse; align-items: center; justify-content: space-between; gap: 12px; margin-top: 9px; }
   .qb-tok { display: inline-flex; align-items: center; gap: 9px; flex: none; font-size: 1.22rem; --fw: 650; font-weight: var(--fw); color: var(--ink-900); }
@@ -2114,7 +2207,7 @@
   .qb .qb-asset:hover { transform: none; }
   .qb .qb-asset[aria-selected="true"] { border-color: var(--blue); background: var(--blue-100); color: var(--ink-900); }
   /* hidden but still taking its row, so the box is the same height in both modes */
-  .qb.sell .qb-quick { visibility: hidden; }
+  .qb.qty-first .qb-quick { visibility: hidden; }
   .qb .qb-swap { order: 2; position: relative; z-index: 2; height: 6px; margin: 0; display: block; }
   .qb .qb-swap button {
     display: grid; place-items: center; width: 38px; height: 38px; margin: -16px auto; border-radius: 50%; cursor: pointer;
@@ -2260,6 +2353,62 @@
     .mk-tabs { justify-content: flex-start; }
     .signup-row { text-align: start; }
   }
+
+  /* phones and tablets: the same design as the desktop bar, stacked: folder tabs on a white card,
+     the two boxes one above the other, price and fee, then a full-width button */
+  @media (max-width: 1000px) {
+    html body .hero .qb.v2.v2 {
+      display: grid; grid-template-columns: minmax(0, 1fr); grid-template-areas: "head" "body" "meta" "cta";
+      padding: 0; background: none; border: 0; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none;
+    }
+    html body .hero .qb.v2.v2::before { content: none; }
+    html body .hero .qb.v2.v2::after {
+      content: ""; grid-row: 2 / 5; grid-column: 1; z-index: 0;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 0 0 22px 22px; box-shadow: var(--sh-3);
+    }
+    html body .hero .qb.v2.v2 .qb-head { grid-area: head; position: relative; z-index: 5; display: block; margin: 0 0 -1px; }
+    html body .hero .qb.v2.v2 .qb-mode {
+      display: flex; width: 100%; gap: 0; padding: 0; overflow: hidden;
+      background: var(--bg-2); border: 1px solid var(--line); border-bottom: 0; border-radius: 20px 20px 0 0; box-shadow: none;
+    }
+    html body .hero .qb.v2.v2 .qb-mode button {
+      position: relative; display: flex; align-items: center; justify-content: center; gap: 7px; flex: 1 1 0; height: 48px; padding: 0 12px;
+      border: 0; border-radius: 0; background: none; box-shadow: none; color: var(--ink-700); font-size: 0.95rem; --fw: 560;
+    }
+    html body .hero .qb.v2.v2 .qb-mode .qb-ico { display: block; width: 19px; height: 19px; flex: none; }
+    html body .hero .qb.v2.v2 .qb-mode button[aria-selected="true"] { background: var(--surface); --fw: 650; }
+    html body .hero .qb.v2.v2 .qb-mode #qbBuy[aria-selected="true"] { background: var(--surface); color: #12a86b; box-shadow: none; }
+    html body .hero .qb.v2.v2 .qb-mode #qbSell[aria-selected="true"] { background: var(--surface); color: #d93a52; box-shadow: none; }
+    html body .hero .qb.v2.v2 .qb-mode button[aria-selected="true"]::after { content: ""; position: absolute; inset: auto 0 0; height: 2px; background: currentColor; }
+
+    html body .hero .qb.v2.v2 .qb-body { grid-area: body; position: relative; z-index: 1; padding: 14px 12px 0; }
+    html body .hero .qb.v2.v2 .qb-panel:is(.p-toman, .p-asset) {
+      display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 10px; align-items: center;
+      padding: 12px 14px 14px; background: var(--bg); border: 1px solid var(--line-soft); border-radius: 16px;
+    }
+    html body .hero .qb.v2.v2 .qb-panel:is(.p-toman, .p-asset):focus-within { background: var(--surface); border-color: var(--blue); }
+    html body .hero .qb.v2.v2 .qb-panel .lbl { grid-column: 1 / -1; grid-row: 1; font-size: 0.78rem; --fw: 650; color: var(--ink-700); }
+    html body .hero .qb.v2.v2 .qb-panel .qb-line {
+      grid-column: 1; grid-row: 2; margin: 8px 0 0; padding: 6px 12px;
+      background: var(--surface); border: 1px solid var(--line); border-radius: 12px; cursor: text;
+    }
+    html body .hero .qb.v2.v2 .p-toman .qb-line { grid-column: 1 / -1; }
+    html body .hero .qb.v2.v2 .qb-panel:focus-within .qb-line { border-color: var(--blue); box-shadow: 0 0 0 3px var(--blue-100); }
+    html body .hero .qb.v2.v2 .qb-panel:has(input[readonly]) .qb-line { background: none; border-color: transparent; padding-inline: 2px; cursor: default; }
+    html body .hero .qb.v2.v2 .qb-panel input { font-size: 1.35rem; line-height: 1.4; }
+    html body .hero .qb.v2.v2 .qb-pick { display: inline-flex; grid-column: 2; grid-row: 2; margin: 8px 0 0; align-self: stretch; border-radius: 12px; background: var(--surface); }
+    html body .hero .qb.v2.v2 .qb-quick, html body .hero .qb.v2.v2 .qb-assets { display: none; }
+    html body .hero .qb.v2.v2 .qb-swap { height: 10px; }
+    html body .hero .qb.v2.v2 .qb-swap button { margin: -14px auto; }
+
+    html body .hero .qb.v2.v2 .qb-meta {
+      grid-area: meta; position: relative; z-index: 1; margin: 0; padding: 12px 16px 0;
+      justify-content: space-between; gap: 12px; font-size: 0.76rem;
+    }
+    html body .hero .qb.v2.v2 .qb-cta {
+      grid-area: cta; position: relative; z-index: 1; width: auto; height: 52px; margin: 12px; padding-block: 0; border-radius: 14px;
+    }
+  }
 </style>
 
 <div class="progress" id="progress"></div>
@@ -2366,19 +2515,18 @@
 
     <div class="wrap hero-grid">
       <div class="rv sec-copy hero-top">
-        <h1 class="split"><span class="thin nosplit">دنیای رمزارز،</span><span class="grad nosplit">ساده‌تر از همیشه</span></h1>
+        <h1 class="split"><span class="thin nosplit">دنیای رمزارز،</span> <span class="grad nosplit">ساده‌تر از همیشه</span></h1>
         <p class="hero-sub">با تومان بخرید، در حساب خودتان نگه دارید، هر وقت خواستید بفروشید.</p>
       </div>
 
       <div class="hero-right rv">
         <div class="qb-coins" aria-hidden="true">
         </div>
-        <div class="qbv" role="tablist" aria-label="حالت نمایش باکس خرید و فروش"><b>حالت باکس:</b><button type="button" role="tab" data-v="v1" aria-selected="true">نوار</button><button type="button" role="tab" data-v="v2" aria-selected="false">کارت</button><button type="button" role="tab" data-v="v3" aria-selected="false">جستجو</button><button type="button" role="tab" data-v="v4" aria-selected="false">جمله‌ای</button><button type="button" role="tab" data-v="v5" aria-selected="false">تیره</button></div>
         <div class="qb v1" id="qb">
           <div class="qb-head">
             <div class="qb-mode" role="tablist" aria-label="نوع معامله">
-              <button type="button" role="tab" id="qbBuy" aria-selected="true">خرید</button>
-              <button type="button" role="tab" id="qbSell" aria-selected="false">فروش</button>
+              <button type="button" role="tab" id="qbBuy" aria-selected="true"><svg class="qb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 20h14"/></svg><span>خرید</span></button>
+              <button type="button" role="tab" id="qbSell" aria-selected="false"><svg class="qb-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20V8"/><path d="m7 13 5-5 5 5"/><path d="M5 4h14"/></svg><span>فروش</span></button>
             </div>
           </div>
 
@@ -3024,7 +3172,7 @@
       var b = document.createElement("button");
       b.type = "button";
       b.textContent = toFa(group(v / 1000000)) + " میلیون";
-      b.addEventListener("click", function () { if (mode === "buy") { elAmount.value = toFa(group(v)); recalc(); } });
+      b.addEventListener("click", function () { if (side === "toman") { elAmount.value = toFa(group(v)); recalc(); } });
       elQuick.appendChild(b);
     });
   
@@ -3045,7 +3193,7 @@
 
     recalc = function () {
       var a = byKey[current];
-      if (mode === "buy") {
+      if (side === "toman") {
         var toman = amountValue();
         var qty = toman / a.price;
         elQty.value = toman > 0 ? faNum(qty, qty < 1 ? 6 : 4) : "";
@@ -3059,17 +3207,20 @@
       if (elLogo && shownLogo !== current) { elLogo.innerHTML = coin(current); shownLogo = current; }
     }
 
-    var typed = { buy: null, sell: null };
+    // which field the person types in: the toman amount or the coin amount. The swap button
+    // flips this; buy / sell only sets where it starts (buy: toman, sell: the coin).
+    var side = "toman";
+    function setSide(sd) {
+      side = sd;
+      elBox.classList.toggle("qty-first", sd === "asset");
+      elAmount.readOnly = sd !== "toman";
+      elQty.readOnly = sd !== "asset";
+    }
     function setMode(m) {
       if (m === mode) return;
-      // remember the amount the person typed on the side they are leaving, and bring back
-      // the one they typed on the side they return to (otherwise it drifts through rounding)
-      typed[mode] = mode === "buy" ? elAmount.value : elQty.value;
       mode = m;
-      if (typed[m] !== null) { if (m === "buy") elAmount.value = typed[m]; else elQty.value = typed[m]; }
       elBox.classList.toggle("sell", m === "sell");
-      elAmount.readOnly = m === "sell";
-      elQty.readOnly = m === "buy";
+      setSide(m === "buy" ? "toman" : "asset");
       elBuy.setAttribute("aria-selected", String(m === "buy"));
       elSell.setAttribute("aria-selected", String(m === "sell"));
       document.getElementById("qbLblToman").textContent = m === "buy" ? "پرداخت می‌کنید (تومانء)" : "دریافت می‌کنید (تومانء)";
@@ -3126,31 +3277,28 @@
       if (pickBtn) pickBtn.addEventListener("click", function () { openPicker(pickBtn); });
     })();
 
-    /* ---------- the five looks of the box (for comparing; the choice is remembered) ---------- */
+    /* ---------- box look: stacked card up to 1000px, search bar above ---------- */
     (function () {
-      var bar = document.querySelector(".qbv"); if (!bar) return;
-      var looks = ["v1", "v2", "v3", "v4", "v5"];
-      function setLook(v) {
-        if (looks.indexOf(v) < 0) v = "v1";
-        looks.forEach(function (c) { elBox.classList.remove(c); });
-        elBox.classList.add(v);
-        bar.querySelectorAll("button").forEach(function (b) { b.setAttribute("aria-selected", String(b.dataset.v === v)); });
-        try { localStorage.setItem("ebQbLook", v); } catch (e) {}
+      var mq = window.matchMedia("(max-width: 1000px)");
+      function setLook() {
+        ["v1", "v2", "v3", "v4", "v5"].forEach(function (c) { elBox.classList.remove(c); });
+        elBox.classList.add(mq.matches ? "v2" : "v3");
       }
-      bar.addEventListener("click", function (e) { var b = e.target.closest("button[data-v]"); if (b) setLook(b.dataset.v); });
-      var q = (location.search.match(/[?&]box=(\d)/) || [])[1], saved = null;
-      try { saved = localStorage.getItem("ebQbLook"); } catch (e) {}
-      setLook(q ? "v" + q : (saved || "v1"));
+      setLook();
+      if (mq.addEventListener) mq.addEventListener("change", setLook); else mq.addListener(setLook);
     })();
     var swapTurns = 0;
     document.getElementById("qbSwap").addEventListener("click", function () {
       swapTurns += 1; this.style.setProperty("--rot", swapTurns * 180 + "deg");
-      setMode(mode === "buy" ? "sell" : "buy");
+      setSide(side === "toman" ? "asset" : "toman");
+      recalc();
+      var f = side === "toman" ? elAmount : elQty;
+      try { f.focus({ preventScroll: true }); } catch (e) { f.focus(); }
     });
 
-    // the asset amount is typed only when selling: digits and one decimal point
+    // the coin amount, when it is the typed side: digits and one decimal point
     elQty.addEventListener("input", function () {
-      if (mode !== "sell") return;
+      if (side !== "asset") return;
       var raw = toEn(elQty.value).replace(/[^0-9.]/g, "");
       var i = raw.indexOf(".");
       if (i !== -1) raw = raw.slice(0, i + 1) + raw.slice(i + 1).replace(/\./g, "").slice(0, 8);
@@ -3159,14 +3307,16 @@
     });
 
     elAmount.addEventListener("input", function () {
-      if (mode !== "buy") return;
+      if (side !== "toman") return;
       var digits = toEn(elAmount.value).replace(/[^0-9]/g, "");
       elAmount.value = digits ? toFa(group(Number(digits))) : "";
       recalc();
     });
   
-    elAmount.value = toFa(group(5000000));
+    // starts empty with the caret in it, so a visitor can type an amount straight away
+    elAmount.value = "";
     recalc();
+    try { elAmount.focus({ preventScroll: true }); } catch (e) { elAmount.focus(); }
   
   
   }
